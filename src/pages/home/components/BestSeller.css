@@ -1,0 +1,24 @@
+.best-seller {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+
+.best-seller__info .title {
+    text-align: left;
+}
+
+.best-seller__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.best-seller__products {
+    width: 450px;
+    height: 752px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,37 @@
+.feature-product {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.feature__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.feature__control {
+    display: flex;
+    align-items: center;
+}
+
+.feature__control i {
+    font-size: 20px;
+    transition: all 0.2s ease-in;
+}
+
+.feature__control i:first-child {
+    padding-right: 25px;
+}
+
+.feature__control i:hover {
+    color: #2453D4;
+    cursor: pointer;
+}
+
+.list-products {
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: space-between;
+}

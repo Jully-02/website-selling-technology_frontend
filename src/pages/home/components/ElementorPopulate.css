@@ -1,0 +1,26 @@
+.elementor-populated {
+    padding-left: 4%;
+    padding-right: 4%;
+    margin-top: 60px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.elementor__banner img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.elementor-populated__info {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.elementor-populated__info .title {
+    font-size: 32px;
+    color: #000;
+}

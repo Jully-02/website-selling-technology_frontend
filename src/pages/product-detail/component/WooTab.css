@@ -1,0 +1,177 @@
+.woo-tabs {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.woo-tab__heading {
+    display: flex;
+    align-items: center;
+    border: 1px solid #EAEAEA;
+    border-radius: 10px;
+    padding: 5px;
+    position: relative;
+}
+
+.woo-tab__content {
+    width: 100%;
+}
+
+.woo-tab__heading div {
+    position: relative;
+    padding: 12px 34px;
+    box-sizing: content-box;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 2px;
+    overflow: hidden; /* Đảm bảo pseudo-element không tràn ra ngoài */
+    transition: background-color 0.3s ease-in, color 0.3s ease-in; /* Chuyển đổi màu nền và màu chữ */
+}
+
+.woo-tab__heading div:last-child {
+    margin: 0;
+}
+
+.woo-tab__heading div:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -1px; /* Điều chỉnh lại giá trị right */
+    width: 1px;
+    height: 60%;
+    background-color: #EAEAEA;
+    transform: translateY(-50%);
+    z-index: 1; /* Đảm bảo phần phân cách nằm trên nền nhưng dưới nội dung */
+}
+
+.woo-tab__heading .active {
+    background-color: #2453D4; /* Màu nền cho phần tử active */
+    color: #fff !important; /* Đảm bảo màu chữ đổi thành màu trắng */
+}
+
+.woo-tab__heading .active h3 {
+    color: #fff !important;
+}
+
+.woo-tab__heading div::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2453D4;
+    transition: top 0.3s ease-in; /* Chuyển đổi vị trí nền */
+    z-index: 0; /* Đảm bảo nó nằm dưới nội dung */
+}
+
+.woo-tab__heading div:hover::before {
+    top: 0;
+}
+
+.woo-tab__heading div:hover {
+    color: #fff; /* Đảm bảo màu chữ đổi thành màu trắng khi hover */
+}
+
+.woo-tab__heading div h3 {
+    position: relative;
+    z-index: 2; /* Đảm bảo nó nằm trên pseudo-element và phân cách */
+    transition: color 0.3s ease-in; /* Chuyển đổi màu chữ */
+}
+
+.woo-tab__heading div:hover h3 {
+    color: #fff;
+}
+
+.woo-tab__heading div:not(:hover)::before {
+    top: 100%; 
+}
+
+.woo-tab__heading div:not(:hover) h3 {
+    color: #000;
+}
+
+.woo-tab__heading div:last-child {
+    border: none;
+}
+
+.woo-tab__heading div h3 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.woo-tab__content {
+    margin-top: 20px;
+}
+
+.woo-tab__content .woo-tab__description {
+    color: #676770;
+    font-size: 15px;
+    font-weight: 400;
+    width: 85%;
+}
+
+.woo-tab__content .woo-tab__add-info span {
+    font-size: 14px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.woo-tab__content .woo-tab__add-info span:last-child {
+    margin: 0;
+}
+
+.woo-tab__content .woo-tab__add-info p {
+    display: inline;
+    color: #676770;
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+.woo-tab__spec table {
+    width: 100%;
+    border-collapse: collapse; 
+    color: #676770;
+}
+
+.woo-tab__spec td {
+    padding: 9px 0;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.woo-tab__spec td:first-child {
+    width: 30%;
+}
+
+.woo-tab__spec td:last-child {
+    width: 70%;
+}
+
+.woo-tab__description,
+.woo-tab__add-info,
+.woo-tab__spec {
+    display: none;
+}
+
+
+.woo-tab__review-cus .title {
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+
+.woo-tab__review-add{
+    margin-top: 40px;
+}
+
+.woo-tab__review-add .title {
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+
+

@@ -1,0 +1,121 @@
+.top-selling-product {
+    padding-left: 4%;
+    padding-right: 4%;
+    margin-bottom: 70px;
+}
+
+.top-selling__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.top-selling-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.top-selling__filter .filter-item:nth-child(2) {
+    margin: 0 15px;
+}
+
+
+.top-selling__control {
+    display: flex;
+    align-items: center;
+}
+
+.top-selling__control i {
+    font-size: 20px;
+    transition: all 0.2s ease-in;
+}
+
+.top-selling__control i:first-child {
+    padding-right: 25px;
+}
+
+.top-selling__control i:hover {
+    color: #2453D4;
+    cursor: pointer;
+}
+
+.top-selling__filter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.filter-item {
+    padding: 3px 17px;
+    border-radius: 50px;
+    box-sizing: content-box;
+    position: relative;
+    overflow: hidden; 
+}
+
+.filter-item.active {
+    background-color: #2453D4;
+    z-index: 999;
+}
+
+.filter-item.active a {
+    color: #fff;
+}
+
+.filter-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(90deg, #2453D4, #2453D4, #2453D4);
+    transition: left 0.5s ease; 
+    z-index: -1; 
+    border-radius: 50px; 
+}
+
+.filter-item:hover::before {
+    left: 100%; 
+    animation: gradientMove 0.5s forwards;
+}
+
+.filter-item a {
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative; 
+    z-index: 1;
+    transition: color 0.5s ease; 
+}
+
+.filter-item:hover a {
+    color: #fff; 
+}
+
+@keyframes gradientMove {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+.filter-item:not(:hover)::before {
+    animation: gradientReturn 0.5s forwards; 
+}
+
+@keyframes gradientReturn {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+}

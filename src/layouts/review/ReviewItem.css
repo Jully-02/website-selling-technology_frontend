@@ -1,0 +1,59 @@
+.review-item {
+    padding: 40px 40px 24px 40px;
+    border: 1px solid #EAEAEA;
+    border-radius: 10px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start;
+    margin-top: 12px;
+}
+
+.review-item .avatar img {
+    border-radius: 10px;
+}
+
+.info {
+    margin-left: 30px;
+}
+
+.info .info__rate i {
+    color: #CDD0D9;
+    padding-right: 3px;
+}
+
+.info .info__rate i:last-child {
+    padding: 0;
+}
+
+.info .info__rate i:nth-child(1),
+.info .info__rate i:nth-child(2),
+.info .info__rate i:nth-child(3) {
+    color: #000;
+}
+
+.info .info__time p{
+    color: #676770;
+    font-size: 11px;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+
+}
+
+.info .info__name h3 {
+    font-size: 26px;
+    color: #000;
+    margin-top: 5px;
+}
+
+
+.info .info__desc {
+    font-size: 15px;
+    color: #676770;
+    width: 75%;
+    margin-top: 5px;
+}
+
+.info .info__desc p {
+    margin-bottom: 0;
+}

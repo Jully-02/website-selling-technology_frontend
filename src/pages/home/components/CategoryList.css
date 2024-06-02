@@ -1,0 +1,8 @@
+.category-list {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

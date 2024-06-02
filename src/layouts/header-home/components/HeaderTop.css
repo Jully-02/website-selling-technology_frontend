@@ -1,0 +1,87 @@
+.header-top {
+    height: 92px;
+    display: flex;
+    padding-left: 4%;
+    padding-right: 4%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo {
+    width: 100px;
+    height: 21px;
+}
+
+.header-logo img{
+    width: auto;
+    height: 100%;
+}
+
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    align-items: center;
+    padding: 17px;
+}
+
+.header-nav ul li {
+    padding-right: 21px;
+    padding-left: 21px;
+}
+
+.header-nav ul a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.header-holder {
+    display: flex;
+    align-items: center;
+}
+
+.holder-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.holder-logo {
+    padding-right: 15px;
+}
+
+.holder-contact a {
+    text-decoration: none;
+    color: #000;
+    margin-left: auto;
+}
+
+.holder-contact a:first-child {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+}
+
+.holder-contact a:last-child {
+    font-size: 14px;
+    color: rgb(102, 107, 122);
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.menu-item a {
+    transition: all 0.3s ease-in;
+    font-weight: 500;
+}
+
+.menu-item:hover a {
+    color: #2453D4;
+}

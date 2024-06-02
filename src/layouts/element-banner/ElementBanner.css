@@ -1,0 +1,46 @@
+.element-banner {
+  /* height: 250px;
+  width: 689px; */
+  position: relative;
+}
+
+.element__banner img {
+  /* height: 250px;
+  width: 689px; */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.element__info {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+  left: 40px;
+}
+
+.element__heading .title {
+  font-size: 30px;
+  margin: 0;
+}
+
+.element__heading .sub {
+  font-size: 16px;
+  color: rgb(103, 103, 112);
+}
+
+.element__price {
+  padding-top: 16px;
+}
+
+.element__price .sub {
+  font-size: 11px;
+  color: rgb(103, 103, 112);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.element__price .text-price {
+  font-size: 41px;
+  line-height: 10px;
+}

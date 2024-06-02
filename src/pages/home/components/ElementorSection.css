@@ -1,0 +1,9 @@
+.elementor-section {
+  margin-top: 70px;
+  padding-left: 4%;
+  padding-right: 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 65px;
+}

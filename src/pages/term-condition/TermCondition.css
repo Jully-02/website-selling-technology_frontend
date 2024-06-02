@@ -1,0 +1,162 @@
+.term-condition {
+    margin-left: 4%;
+    margin-right: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 120px;
+}
+
+.term-condition .title {
+    font-size: 46px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.term-condition .content > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 45px 0;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.term-condition .content .title {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.term-condition .content .desc {
+    width: 60%;
+    color: #333;
+    font-size: 16px;
+}
+
+.term-condition .content .desc .sub {
+    display: flex;
+    align-items: flex-start;
+    width: 65%;
+}
+
+.term-condition .content .desc .sub i {
+    padding-top: 5px;
+    margin-right: 10px;
+    color: #000;
+}
+
+.term-condition .content .desc ul {
+    margin: 0;
+    padding-left: 17px;
+}
+
+.term-condition .content .desc ul li {
+    margin-bottom: 15px;
+}
+
+.term-condition .content .desc ul li:last-child {
+    margin: 0;
+}
+
+.term-condition .content .website .desc > p {
+    margin-bottom: 30px;
+}
+
+.contact-us {
+    margin-top: 80px;
+}
+
+.contact-us .title{
+    font-size: 46px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.add-question {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.add-question__attention {
+    font-size: 14px;
+    color: #676770;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.add-question__form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.add-question__desc {
+    border-radius: 10px;
+    border: 1px solid #EAEAEA;
+    padding: 21px 20px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: all 0.3s ease-in;
+    outline: none;
+}
+
+.add-question__name:focus::placeholder,
+.add-question__email:focus::placeholder,
+.add-question__desc:focus::placeholder {
+    color: #000;
+}
+
+.add-question__name,
+.add-question__email {
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #EAEAEA;
+    padding: 21px 20px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: all 0.3s ease-in;
+    color: #000;
+}
+
+.add-question__name:focus,
+.add-question__email:focus,
+.add-question__desc:focus {
+    background-color: transparent;
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 0 0 2px #2453d4 inset;
+}
+
+
+.add-question__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid #EAEAEA;
+    background-color: #2453D4;
+    padding: 14px 13px;
+    box-sizing: border-box;
+    width: 124px;
+    height: 45px;
+}
+
+.add-question__submit span {
+    margin: 0;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-right: 5px;
+    line-height: 10px;
+    text-align: center;
+}
+
+.add-question__submit i {
+    font-size: 13px;
+    color: #fff;
+    line-height: 1px;
+    font-weight: 700;
+    text-align: center;
+}

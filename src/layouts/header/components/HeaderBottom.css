@@ -1,0 +1,178 @@
+.header-bottom {
+  display: flex;
+  /* align-items: center;  */
+  height: 60px;
+  background-color: #2453d4;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header-bottom-inner {
+  width: 100%;
+  padding-left: 4%;
+  padding-right: 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Add */
+
+.header-nav .menu {
+  padding: 0;
+}
+
+.header-nav .menu-item a {
+  transition: all 0.3s ease-in;
+  font-weight: 500;
+  color: #fff;
+}
+
+.header-nav .menu-item {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+}
+
+.header-nav .menu-item:hover {
+  background-color: #1E39DF;
+}
+
+.header-nav .menu-item:hover a {
+  color: #fff;
+}
+
+.header-discount {
+ position: relative;
+}
+
+.header-discount__heading {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+
+.header-discount__heading .title {
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+  padding-right: 10px;
+}
+
+.header-discount__heading i {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.header-discount {
+  position: relative;
+}
+
+.header-discount__overlay {
+  position: absolute;
+  top: 60px;
+  right: -62px;
+  width: 100vw;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu tối cho lớp phủ */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 998; /* Đặt lớp phủ phía sau .header-discount__content */
+  pointer-events: none; /* Đảm bảo lớp phủ không cản trở tương tác */
+}
+
+.header-discount__content {
+  width: 1398px;
+  border: 1px solid #EAEAEA;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.header-discount:hover .header-discount__content,
+.header-discount__content:hover {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header-discount:hover .header-discount__overlay {
+  opacity: 1;
+  pointer-events: auto; /* Cho phép tương tác với lớp phủ nếu cần */
+}
+
+.header-discount__products {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 0 20px;
+}
+
+.header-discount__read-more {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin: 30px 0;
+}
+
+.header-discount__read-more .read-more {
+  font-size: 12px;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  padding-right: 10px;
+  font-weight: 700;
+}
+
+.header-discount__read-more i {
+  font-size: 12px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+.header-discount__heading:hover {
+  background-color: #1E39DF;
+}
+
+.header-bottom-outer {
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+.header-bottom-outer .breadcrumb a {
+  text-decoration: none;
+  font-size: 11px;
+  color: #8f96ac;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header-bottom-outer .breadcrumb-item:last-child a {
+  color: #000;
+}
+
+.header-bottom-outer {
+  margin-top: 22px;
+}

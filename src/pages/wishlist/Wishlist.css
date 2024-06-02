@@ -1,0 +1,155 @@
+.wishlist {
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 120px;
+}
+
+.wishlist-table {
+  width: 100%;
+}
+
+.wishlist-table .product-image img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+}
+
+.wishlist-table .product-image .name {
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease-in;
+}
+
+.wishlist-table .product-image .name:hover {
+    color: #2453d4;
+    cursor: pointer;
+}
+
+.wishlist-table tbody .product-price {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.wishlist-table tbody .product-stock {
+  font-size: 15px;
+  color: rgb(103, 103, 112);
+}
+
+.wishlist-table thead tr th:last-child {
+  text-align: left;
+  font-size: 17px;
+}
+
+.wishlist-table thead tr th {
+  font-size: 32px;
+  padding-bottom: 15px;
+}
+
+.wishlist-table thead th,
+.wishlist-table tbody td {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.wishlist-table tbody td {
+  padding: 15px 0 15px 15px;
+}
+
+.wishlist-table .product-add-to-cart {
+  padding-top: 30px;
+  display: flex;
+  padding-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishlist-table .product-add-to-cart .add-to-cart {
+  display: flex;
+  align-items: center;
+  background-color: #2453d4;
+  border-radius: 10px;
+  border: none;
+  padding: 20px 28px;
+  margin-left: 20px;
+}
+
+.wishlist-table .product-add-to-cart .add-to-cart span {
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-right: 10px;
+}
+
+.wishlist-table .product-add-to-cart .add-to-cart i {
+  font-size: 14px;
+  color: #fff;
+}
+
+.wishlist-table .product-actions i {
+  font-size: 20px;
+  transition: all 0.5s ease-in;
+}
+
+.wishlist-table .product-actions:hover i {
+  color: #2453d4;
+  cursor: pointer;
+}
+
+.wishlist-table thead tr th:last-child i {
+    transition: all 0.3s ease-in;
+}
+
+.wishlist-table thead tr th:last-child {
+    position: relative;
+}
+
+.wishlist-table thead tr th:last-child i:hover  {
+    color: #2453d4;
+    cursor: pointer;
+}
+
+.wishlist-table thead tr th:last-child .social-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px solid #eaeaea;
+    position: absolute;
+    top: 50px;
+    right: 3px;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+}
+
+.wishlist-table thead tr th:last-child:hover .social-item {
+    opacity: 1;
+}
+
+.wishlist-table thead tr th:last-child .social-item div {
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.wishlist-table thead tr th:last-child .social-item div i {
+    transition: all 0.3s ease-in;
+}
+
+.wishlist-table thead tr th:last-child .social-item div:hover i {
+    color: #2453d4;
+}
+
+.wishlist-table thead tr th:last-child .social-item div:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.wishlist-table thead tr th:last-child .social-item div:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: none;
+}

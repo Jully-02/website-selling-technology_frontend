@@ -1,0 +1,152 @@
+.add-review {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.add-review__attention {
+    font-size: 14px;
+    color: #676770;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.add-review__rate {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.rate-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #EAEAEA;
+    border-radius: 10px;
+    padding: 21px 20px;
+    margin-bottom: 15px;
+}
+
+.rate-wrapper .rate-title {
+    margin: 0;
+    margin-right: 20px;
+    font-size: 14px;
+    color: #676770;
+}
+
+
+.rate-wrapper .rate-stars i {
+    margin-right: 3px;
+    color: #676770;
+}
+
+.rate-wrapper .rate-stars i:last-child {
+    margin: 0;
+}
+
+.rate-wrapper .rate-stars i:nth-child(1),
+.rate-wrapper .rate-stars i:nth-child(2),
+.rate-wrapper .rate-stars i:nth-child(3) {
+    color: #000;
+}
+
+.add-review__desc {
+    border-radius: 10px;
+    border: 1px solid #EAEAEA;
+    padding: 21px 20px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: all 0.3s ease-in;
+    outline: none;
+}
+
+.add-review__name:focus::placeholder,
+.add-review__email:focus::placeholder,
+.add-review__desc:focus::placeholder {
+    color: #000;
+}
+
+.add-review__name,
+.add-review__email {
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #EAEAEA;
+    padding: 21px 20px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: all 0.3s ease-in;
+    color: #000;
+}
+
+.add-review__name:focus,
+.add-review__email:focus,
+.add-review__desc:focus {
+    background-color: transparent;
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 0 0 2px #2453d4 inset;
+}
+
+.add-review__save-info {
+    display: flex;
+    align-items: center;
+}
+
+.save-info-checkbox {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #EAEAEA;
+    margin-right: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in;
+}
+
+.save-info-checkbox:hover {
+    border: 2px solid #2453D4;
+    cursor: pointer;
+}
+
+.save-info-checkbox:checked {
+    border: 2px solid #2453D4;
+    background-color: #fff;
+}
+
+.add-review__save-info label {
+    color: #676770;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.add-review__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid #EAEAEA;
+    background-color: #2453D4;
+    padding: 14px 13px;
+    box-sizing: border-box;
+    width: 124px;
+    height: 45px;
+}
+
+.add-review__submit p {
+    margin: 0;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-right: 5px;
+    line-height: 10px;
+    text-align: center;
+}
+
+.add-review__submit i {
+    font-size: 13px;
+    color: #fff;
+    line-height: 1px;
+    font-weight: 700;
+    text-align: center;
+}

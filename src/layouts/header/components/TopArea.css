@@ -1,0 +1,36 @@
+.top-area {
+    height: 40px;
+    background-color: #F3F6FB;
+    padding-left: 4%;
+    padding-right: 4%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-area__heading a {
+    color: #8f96ac;
+    font-size: 11.5px;
+    text-decoration: none;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+.top-area__heading i {
+    padding-right: 8px;
+}
+
+.top-area__info a {
+    color: #8f96ac;
+    font-size: 11.5px;
+    text-decoration: none;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+.top-area__info a:not(:first-child) {
+    padding-left: 30px;
+}
+
+.top-area__info i {
+    padding-right: 8px;
+}
