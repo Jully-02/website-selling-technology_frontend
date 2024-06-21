@@ -1,6 +1,7 @@
 .feature-product {
     padding-left: 4%;
     padding-right: 4%;
+    overflow: hidden; /* Thêm overflow: hidden để ẩn các phần tử bị tràn ra ngoài */
 }
 
 .feature__info {
@@ -34,4 +35,10 @@
     display: flex;
     flex-wrap: nowrap; 
     justify-content: space-between;
+    transition: transform 0.5s ease; /* Thêm transition để làm mượt hiệu ứng cuộn */
+}
+
+.product-item {
+    min-width: 215px; /* Đặt kích thước tối thiểu cho các phần tử sản phẩm */
+    height: 357px;
 }

@@ -148,27 +148,27 @@
     width: 30%;
 }
 
-.woo-tab__spec td:last-child {
+.woo-tabs .woo-tab__spec td:last-child {
     width: 70%;
 }
 
-.woo-tab__description,
-.woo-tab__add-info,
-.woo-tab__spec {
-    display: none;
+.woo-tabs .woo-tab__review-cus .content {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
 
-.woo-tab__review-cus .title {
+.woo-tabs .woo-tab__review-cus .title {
     margin-top: 30px;
     margin-bottom: 35px;
 }
 
-.woo-tab__review-add{
+.woo-tabs .woo-tab__review-add{
     margin-top: 40px;
 }
 
-.woo-tab__review-add .title {
+.woo-tabs .woo-tab__review-add .title {
     margin-top: 30px;
     margin-bottom: 25px;
 }

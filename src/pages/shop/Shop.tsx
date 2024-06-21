@@ -1,81 +1,77 @@
+import React, { useEffect, useState } from 'react';
 import Footer from '../../layouts/footer/Footer';
 import Header from '../../layouts/header/Header';
 import './Shop.css';
 import ElementBanner from '../../layouts/element-banner/ElementBanner';
 
-import BannerShop from '../../images/public/banner-shop.jpg';
+import BannerShopImg from '../../images/public/banner-shop.jpg';
 import BannerProduct from '../../images/public/Banner-Shop-1.jpg';
-import Product from '../../layouts/product/Product';
 
-import Smartphone from '../../images/public/Smartphone.jpg';
-import SmartMonitor from '../../images/public/SmartMonitor.jpg';
-import Samsung from '../../images/public/Samsung.jpg';
-import Headphone from '../../images/public/Headphone.jpg';
-import Gopro from '../../images/public/Gopro.jpg';
+import CategoryList from './components/CategoryList';
+import BrandList from './components/BrandList';
+import ProductList from './components/ProductList';
+import BannerShop from './components/BannerShop';
+import Pagination from '../../layouts/utils/Pagination';
+import { Product } from '../../models/product';
+import { getAllProducts } from '../../api/product.api';
+import { Console } from 'console';
 
-function Shop() {
+const Shop: React.FC = () => {
+    const [products, setProducts] = useState<Product[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string>('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+    const [checkedCategories, setCheckedCategories] = useState<number[]>([]);
+    const [checkedBrands, setCheckedBrands] = useState<number[]>([]);
+    const [sortOption, setSortOption] = useState('default');
+
+    const handleCheckedCategoriesChange = (newCheckedCategories: number[]) => {
+        setCheckedCategories(newCheckedCategories)
+    }
+
+    const handleCheckedBrandsChange = (newCheckedBrands: number[]) => {
+        setCheckedBrands(newCheckedBrands)
+    }
+
+    const handleSortChange = (selectedOption: string) => {
+        setSortOption(selectedOption);
+    }
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const productData = await getAllProducts(currentPage - 1, 16, '', checkedCategories, checkedBrands, sortOption);
+                setProducts(productData.products);
+                setTotalPages(productData.totalPages);
+            } catch (err) {
+                setError('Failed to fetch products');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, [currentPage, checkedCategories, checkedBrands, sortOption]);
+
+    const pagination = (page: number) => {
+        setCurrentPage(page);
+    }
+
     return (
         <>
             <Header />
-            <div className="content">
+            <div className="shop">
                 <div className="filter">
                     <div className="category-list">
                         <div className="category__heading">
                             <i className="fa-regular fa-angle-down"></i>
                             <h3 className="title">Categories</h3>
                         </div>
-                        <ul className="category__content">
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>3D Printers</span>
-                                <span className="quantity">(5)</span>
-                            </li>
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>Activated Carbon</span>
-                                <span className="quantity">(1)</span>
-                            </li>
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>Adapters</span>
-                                <span className="quantity">(2)</span>
-                            </li>
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>Air-To-Air</span>
-                                <span className="quantity">(1)</span>
-                            </li>
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>Aluminium</span>
-                                <span className="quantity">(4)</span>
-                            </li>
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>Amplifiers</span>
-                                <span className="quantity">(1)</span>
-                            </li>
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>Analog Watches</span>
-                                <span className="quantity">(5)</span>
-                            </li>
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>Appliances</span>
-                                <span className="quantity">(5)</span>
-                            </li>
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>Appliances Materials</span>
-                                <span className="quantity">(10)</span>
-                            </li>
-                            <li className="category-item">
-                                <input type="checkbox" />
-                                <span className='title'>Audio</span>
-                                <span className="quantity">(4)</span>
-                            </li>
-                        </ul>
+                        <CategoryList 
+                            checkedCategories={checkedCategories}
+                            onCheckedCategoriesChange={handleCheckedCategoriesChange}
+                        />
                         <div className="category__read-more">
                             <span className='read-more'>View More</span>
                             <i className="fa-solid fa-plus"></i>
@@ -87,53 +83,10 @@ function Shop() {
                             <i className="fa-regular fa-angle-down"></i>
                             <h3 className="title">Brands</h3>
                         </div>
-                        <ul className="brand__content">
-                            <li className="brand-item">
-                                <input type="checkbox" />
-                                <span className='title'>BraunBraun</span>
-                                <span className="quantity">(16)</span>
-                            </li>
-                            <li className="brand-item">
-                                <input type="checkbox" />
-                                <span className='title'>Cosmos</span>
-                                <span className="quantity">(7)</span>
-                            </li>
-                            <li className="brand-item">
-                                <input type="checkbox" />
-                                <span className='title'>Ein</span>
-                                <span className="quantity">(12)</span>
-                            </li>
-                            <li className="brand-item">
-                                <input type="checkbox" />
-                                <span className='title'>Lorem</span>
-                                <span className="quantity">(8)</span>
-                            </li>
-                            <li className="brand-item">
-                                <input type="checkbox" />
-                                <span className='title'>Monos</span>
-                                <span className="quantity">(6)</span>
-                            </li>
-                            <li className="brand-item">
-                                <input type="checkbox" />
-                                <span className='title'>Profeus</span>
-                                <span className="quantity">(9)</span>
-                            </li>
-                            <li className="brand-item">
-                                <input type="checkbox" />
-                                <span className='title'>Xmos</span>
-                                <span className="quantity">(10)</span>
-                            </li>
-                            <li className="brand-item">
-                                <input type="checkbox" />
-                                <span className='title'>Yelo</span>
-                                <span className="quantity">(10)</span>
-                            </li>
-                            <li className="brand-item">
-                                <input type="checkbox" />
-                                <span className='title'>Zeuss</span>
-                                <span className="quantity">(7)</span>
-                            </li>
-                        </ul>
+                        <BrandList 
+                            checkedBrands={checkedBrands}
+                            onCheckedBrandsChange={handleCheckedBrandsChange}
+                        />
                     </div>
 
                     <div className="model-list">
@@ -233,7 +186,7 @@ function Shop() {
                     </div>
 
                     <div className="banner">
-                        <img src={BannerShop} alt="" />
+                        <img src={BannerShopImg} alt="" />
                         <div className="banner-info">
                             <h3 className='title'>Computers & Laptops</h3>
                             <div className="direct">
@@ -244,44 +197,9 @@ function Shop() {
                     </div>
                 </div>
                 <div className="products">
-                    <div className="product__heading">
-                        <div className="banner-product">
-                            <ElementBanner width={'1116px'} height={'250px'} imgSrc={BannerProduct} />
-                        </div>
-                    </div>
-                    <div className="product-list">
-                        <h3 className="title">Electronics & Appliances</h3>
-                        <div className="product-list__filter">
-                            <span className='result'>Showing 1–16 of 355 results</span>
-                            <div className="filter">
-                                <select className="sorting-select">
-                                    <option value="default">Default sorting</option>
-                                    <option value="popularity">Sort by popularity</option>
-                                    <option value="latest">Sort by latest</option>
-                                    <option value="high">Sort by price hight to low</option>
-                                    <option value="low">Sort by price low to high</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="content">
-                            <Product width={'264px'} height={'406px'} imgSrc={SmartMonitor} name={'High Definition Webcam SX-557'} price={'$140'} category={'BLUETOOTH'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Gopro} name={'Camera CCW5 4K Waterproof Cover'} price={'$1,390'} category={'EARBUDS (IN-EAR)'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Headphone} name={'Over-Ear Studio Headphones FX-989 Multicolor'} price={'$790'} category={'PROCESSORS'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Samsung} name={'Tabet Protective Case Ultra Black'} price={'$2,109'} category={'EQUIPMENT'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Smartphone} name={'Smartphone Case Carbon Black Flex'} price={'$99'} category={'EQUIPMENT'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={SmartMonitor} name={'High Definition Webcam SX-557'} price={'$140'} category={'BLUETOOTH'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Gopro} name={'Camera CCW5 4K Waterproof Cover'} price={'$1,390'} category={'EARBUDS (IN-EAR)'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Headphone} name={'Over-Ear Studio Headphones FX-989 Multicolor'} price={'$790'} category={'PROCESSORS'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Samsung} name={'Tabet Protective Case Ultra Black'} price={'$2,109'} category={'EQUIPMENT'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Smartphone} name={'Smartphone Case Carbon Black Flex'} price={'$99'} category={'EQUIPMENT'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={SmartMonitor} name={'High Definition Webcam SX-557'} price={'$140'} category={'BLUETOOTH'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Gopro} name={'Camera CCW5 4K Waterproof Cover'} price={'$1,390'} category={'EARBUDS (IN-EAR)'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Headphone} name={'Over-Ear Studio Headphones FX-989 Multicolor'} price={'$790'} category={'PROCESSORS'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Samsung} name={'Tabet Protective Case Ultra Black'} price={'$2,109'} category={'EQUIPMENT'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Smartphone} name={'Smartphone Case Carbon Black Flex'} price={'$99'} category={'EQUIPMENT'} />
-                            <Product width={'264px'} height={'406px'} imgSrc={Smartphone} name={'Smartphone Case Carbon Black Flex'} price={'$99'} category={'EQUIPMENT'} />
-                        </div>
-                    </div>
+                    <BannerShop />
+                    <ProductList products={products} totalProducts={totalPages} onSortChange={handleSortChange}/>
+                    <Pagination currentPage={currentPage} totalPages={totalPages} pagination={pagination}/>
                 </div>
             </div>
             <Footer />

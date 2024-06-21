@@ -1,29 +1,37 @@
 import './HeaderTop.css';
-import Logo from '../../../images/public/Logo.png';
+import Logo from '../../../../../images/public/Logo.png';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-function HeaderTop () {
+const HeaderTop: React.FC = () => {
+    const [activeItem, setActiveItem] = useState('Home');
+
+    const handleItemClick = (itemName: string) => {
+        setActiveItem(itemName);
+    };
+
     return (
-        <div className='header-top'>
+        <div className='header-top-home'>
             <div className="header-menu">
                 <div className="header-logo">
                     <img src={Logo} alt="Logo" />
                 </div>
                 <nav className="header-nav">
                     <ul className="menu">
-                        <li className="menu-item">
-                            <a href="/">Home</a>
+                        <li className={`menu-item ${activeItem === 'Home' ? 'active' : ''}`}>
+                            <Link to='/' onClick={() => handleItemClick('Home')}>Home</Link>
                         </li>
-                        <li className="menu-item">
-                            <a href="/">Pages</a>
+                        <li className={`menu-item ${activeItem === 'Pages' ? 'active' : ''}`}>
+                            <a href="/" onClick={() => handleItemClick('Pages')}>Pages</a>
                         </li>
-                        <li className="menu-item">
-                            <a href="/">Shop</a>
+                        <li className={`menu-item ${activeItem === 'Shop' ? 'active' : ''}`}>
+                            <Link to='/shop' onClick={() => handleItemClick('Shop')}>Shop</Link>
                         </li>
-                        <li className="menu-item">
-                            <a href="/">Blog</a>
+                        <li className={`menu-item ${activeItem === 'Blog' ? 'active' : ''}`}>
+                            <a href="/" onClick={() => handleItemClick('Blog')}>Blog</a>
                         </li>
-                        <li className="menu-item">
-                            <a href="/">Landing</a>
+                        <li className={`menu-item ${activeItem === 'Landing' ? 'active' : ''}`}>
+                            <a href="/" onClick={() => handleItemClick('Landing')}>Landing</a>
                         </li>
                     </ul>
                 </nav>

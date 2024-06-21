@@ -88,11 +88,12 @@
 }
 
 .woo-product__info {
-    padding-left: 60px;
+    /* margin-left: 50px; */
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: start;
+    width: 672px;
 }
 
 .woo-product__info .title {

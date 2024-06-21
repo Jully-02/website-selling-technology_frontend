@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from '../../../images/public/Image.jpg';
 
 interface ToggleProps {
     onToggle: () => void;

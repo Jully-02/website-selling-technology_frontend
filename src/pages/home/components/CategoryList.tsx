@@ -6,7 +6,7 @@ import Category3 from '../../../images/public/Category3.png';
 
 function CategoryList () {
     return (
-        <div className="category-list">
+        <div className="category-list-home">
             <Category imgSrc={Category1}/>
             <Category imgSrc={Category2}/>
             <Category imgSrc={Category3}/>

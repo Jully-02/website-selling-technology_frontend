@@ -20,9 +20,17 @@ const SignUp: React.FC = () => {
                     </a>
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder='Name' />
                 <input type="email" placeholder='Email' />
-                <input type="password" placeholder='Password' />
+                <input type="text" placeholder='Phone number' />
+                <div className="full-name">
+                    <input type="text" placeholder='First name' />
+                    <input type="text" placeholder='Last name' />
+                </div>
+                <div className="password">
+                    <input type="password" placeholder='Password'/>
+                    <input type="password" placeholder='Retype password'/>
+                </div>
+                <span></span>
                 <button type="submit">Sign Up</button>
             </form>
         </div>

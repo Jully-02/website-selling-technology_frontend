@@ -5,9 +5,85 @@ import SmartPhone from '../../../images/public/Smartphone.jpg';
 import BluetoothSpeaker from '../../../images/public/BluetoothSpeaker.jpg';
 import Webcam from '../../../images/public/Webcam.jpg';
 import TableM from '../../../images/public/TableM.jpg';
+import React, { useEffect, useState } from 'react';
+import { Category } from '../../../models/category';
+import { Product } from '../../../models/product';
+import { getAllCategories } from '../../../api/category.api';
+import { getAllProducts } from '../../../api/product.api';
+import { Link } from 'react-router-dom';
 
 
-function HeaderTop() {
+const HeaderTop: React.FC = () => {
+
+    const [categories, setCategories] = useState<Category[]>([]);
+    const [error, setError] = useState<string>('');
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState<number[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
+
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(event.target.value);
+    };
+
+    const handleCategorySelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const category: number[] = [];
+        category.push(Number(event.target.value));
+        setSelectedCategory(category);
+    }
+
+    const handleProductClick = (title: string | undefined) => {
+        if (title) {
+            setSearchQuery(title);
+            setSearchQuery('')
+        }
+    };
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const categories = await getAllCategories(0, 29);
+                setCategories(categories);
+            } catch (err) {
+                setError('Failed to fetch categories.')
+            }
+        }
+
+        const fetchProducts = async () => {
+            try {
+                if (searchQuery !== '') {
+                    const productResponse = await getAllProducts(0, 5, searchQuery, selectedCategory[0] === 0 ? [] : selectedCategory);
+                    const data: Product[] = [];
+                    productResponse.products.map(product => {
+                        if (product.title && product.title.toLowerCase().includes(searchQuery.toLowerCase())) {
+                            data.push(product)
+                        }
+                    })
+                    setProducts(data);
+                }
+                if (searchQuery === '') {
+                    setProducts([])
+                }
+            } catch (err) {
+                setError('Failed to fetch products.');
+            }
+        }
+
+        fetchCategories();
+        fetchProducts();
+    }, [searchQuery, selectedCategory])
+
+    const getHighlightedText = (text: string | undefined, highlight: string) => {
+        if (!highlight) return text;
+
+        const parts = text?.split(new RegExp(`(${highlight})`, 'gi'));
+        return parts?.map((part, index) =>
+            part.toLowerCase() === highlight.toLowerCase()
+                ? <span key={index} style={{ color: '#2453D4' }}>{part}</span>
+                : part
+        );
+    };
+
     return (
         <div className='header-top'>
             <div className="header-menu">
@@ -17,14 +93,24 @@ function HeaderTop() {
             </div>
             <div className="search-product-form">
                 <div className="product-category-holder">
-                    <select name="" id="" className="product-category">
-                        <option value="">All Categories</option>
-                        <option value="activated-carbon">Activated Carbon </option>
-                        <option value="air-to-air">Air-To-Air </option>
-                        <option value="audio">Audio </option>
+                    <select className="product-category"
+                        onChange={handleCategorySelect}
+                    >
+                        <option value={0}>All Categories</option>
+                        {categories.map((category) => (
+                            <option key={category.id} value={category.id}>
+                                {category.name}
+                            </option>
+                        ))}
                     </select>
                 </div>
-                <input type="text" className='product-search-input' placeholder='Search for Product...' />
+                <input
+                    type="text"
+                    className='product-search-input'
+                    placeholder='Search for Product...'
+                    value={searchQuery}
+                    onChange={handleInputChange}
+                />
                 <button className="product-search-submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18.382" height="18.34" viewBox="0 0 18.382 18.34">
                         <g id="searc-icon" transform="translate(-1250 -76)">
@@ -32,6 +118,25 @@ function HeaderTop() {
                         </g>
                     </svg>
                 </button>
+                {products.length !== 0 && (
+                        <div className="product-result">
+                            {products.map((product) => (
+                                <Link
+                                    className="product-result__item"
+                                    to={`/products/${product?.id}`}
+                                    key={product.id}
+                                    onClick={() => handleProductClick(product.title)}
+                                >
+                                    <img src={product.thumbnail} alt="" />
+                                    <div className="info">
+                                        <span className="category">{product?.categories?.[0]?.name || 'N/A'}</span>
+                                        <h5 className="title">{getHighlightedText(product.title, searchQuery)}</h5>
+                                        <h5 className="price">${product.price}</h5>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    )}
             </div>
             <div className="nav-actions">
                 <ul>

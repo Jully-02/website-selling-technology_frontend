@@ -1,16 +1,16 @@
-import './Product.css';
+import { Link } from 'react-router-dom';
+import { Product } from '../../models/product';
+import './ProductCart.css';
 import React from 'react';
 
 interface ProductProps {
+    product?: Product;
     width?: string;
     height?: string;
-    imgSrc?: string;
-    name?: string;
-    price?: string;
-    category?: string;
 }
 
-const Product: React.FC<ProductProps> = ({width, height, imgSrc, name, price, category}) => {
+const ProductCart: React.FC<ProductProps> = ({width, height, product}) => {
+
     return (
         <div className='product'
             style={{
@@ -21,34 +21,34 @@ const Product: React.FC<ProductProps> = ({width, height, imgSrc, name, price, ca
             <div className="product-container">
                 <div className="product-content-top">
                     <div className="product-category">
-                        <a href="/">{category}</a>
+                        <a href="/">{product?.categories?.[0].name}</a>
                     </div>
                     <div className="product-compare-wish-list">
                         <i className="fa-regular fa-heart"></i>
                         <i className="fa-regular fa-code-compare"></i>
                     </div>
                 </div>
-                <div className="product-content-middle">
+                <Link className="product-content-middle" to={`/products/${product?.id}`}>
                     <img 
-                        src={imgSrc} 
+                        src={product?.thumbnail} 
                         alt="Mini USB Flash" 
                         style={{
                             width: `calc(${width} - 40px)`,
                             height: `calc(${width} - 40px)`,
                         }} 
                     />
-                </div>
+                </Link>
                 <div className="product-content-bottom">
-                    <a 
-                        href="/" 
+                    <Link 
+                        to={`/products/${product?.id}`}
                         className='product-title'
                         style={{
                             width: `calc(${width} - 40px - 15px)`
                         }}
                     >
-                        {name}
-                    </a>
-                    <span className="product-price">{price}</span>
+                        {product?.title}
+                    </Link>
+                    <span className="product-price">${product?.price}</span>
                 </div>
                 <div 
                     className="product-add-cart"
@@ -66,4 +66,4 @@ const Product: React.FC<ProductProps> = ({width, height, imgSrc, name, price, ca
     )
 }
 
-export default Product;
+export default ProductCart;

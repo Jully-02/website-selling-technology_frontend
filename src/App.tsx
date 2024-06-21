@@ -9,13 +9,22 @@ import Cart from './pages/cart/Cart';
 import Checkout from './pages/checkout/Checkout';
 import Wishlist from './pages/wishlist/Wishlist';
 import Auth from './pages/auth/Auth';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      {/* <Home /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/shop' element={<Shop />}/>
+          <Route path='/products/:id' element={<ProductDetail />}/>
+          <Route path='/term-condition' element={<TermCondition />}/>
+          <Route path='/auth' element={<Auth />}/>
+        </Routes>
+      </BrowserRouter>
       {/* <ProductDetail /> */}
-      <Shop />
+      {/* <Shop /> */}
       {/* <TermCondition /> */}
       {/* <Cart /> */}
       {/* <Checkout /> */}

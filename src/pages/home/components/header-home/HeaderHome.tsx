@@ -2,7 +2,7 @@ import HeaderBottom from "./components/HeaderBottom";
 import HeaderTop from "./components/HeaderTop";
 import TopArea from "./components/TopArea";
 
-function Header() {
+function HeaderHome() {
     return (
         <>
             <TopArea />
@@ -12,4 +12,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default HeaderHome;

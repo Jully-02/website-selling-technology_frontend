@@ -4,41 +4,72 @@ import Airpod1 from '../../../images/public/Airpod-1.jpg';
 import Airpod2 from '../../../images/public/Airpod-2.jpg';
 import Airpod3 from '../../../images/public/Airpod-3.jpg';
 import Airpod4 from '../../../images/public/Airpod-4.jpg';
+import React, { useState } from 'react';
+import { Product } from '../../../models/product';
+import { Link } from 'react-router-dom';
 
-function WooProduct() {
+interface WooProductProps {
+    product?: Product
+}
+
+const WooProduct: React.FC<WooProductProps> = ({product}) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+
+    const handlePrevClick = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === 0 ? (product?.product_images?.length || 1) - 1 : prevIndex - 1
+        );
+    };
+
+    const handleNextClick = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === (product?.product_images?.length || 1) - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const handleImageClick = (index: number) => {
+        setCurrentImageIndex(index);
+    };
+
+    const handleUpClick = () => {
+        setQuantity(quantity + 1);
+    }
+
+    const handleDownClick = () => {
+        setQuantity((preQuantity) => preQuantity === 1 ? 1 : preQuantity - 1
+        )
+    }
+
     return (
         <div className='woo-product'>
             <div className="woo-product__image">
-                <img src={Airpod} alt="Airpod" className='img-main'/>
+                <img src={product?.product_images?.[currentImageIndex]?.image_url} alt="Airpod" className='img-main'/>
                 <div className="woo-product__carousel">
-                    <button className="control-prev" type="button">
+                    <button className="control-prev" type="button" onClick={handlePrevClick}>
                         <i className="fa-regular fa-chevron-left"></i>
                     </button>
                     <div className="carousel__inner">
-                        <div className="carousel__item active">
-                            <img src={Airpod} alt="Airpod" />
-                        </div>
-                        <div className="carousel__item">
-                            <img src={Airpod1} alt="Airpod" />
-                        </div>
-                        <div className="carousel__item">
-                            <img src={Airpod2} alt="Airpod" />
-                        </div>
-                        <div className="carousel__item">
-                            <img src={Airpod3} alt="Airpod" />
-                        </div>
-                        <div className="carousel__item">
-                            <img src={Airpod4} alt="Airpod" />
-                        </div>
+                        {
+                            product?.product_images?.map((product_image, index) => (
+                                <div
+                                    key={product_image.id}
+                                    className={`carousel__item ${currentImageIndex === index ? 'active' : ''}`}
+                                    onClick={() => handleImageClick(index)}
+                                >
+                                    <img src={product_image.image_url} alt={product_image.image_name} />
+                                </div>
+                            ))
+                        }
                     </div>
-                    <button className="control-next" type="button">
+                    <button className="control-next" type="button" onClick={handleNextClick}>
                         <i className="fa-regular fa-chevron-right"></i>
                     </button>
                 </div>
             </div>
             <div className="woo-product__info">
-                <h1 className="title">SM-2357 Closed-Back Wireless Headphones</h1>
-                <h3 className="price">$918 - $1,810</h3>
+                <h1 className="title">{product?.title}</h1>
+                <h3 className="price">${product?.price}</h3>
                 <div className="rate">
                     <div className="rate-star">
                         <i className="fa-regular fa-star"></i>
@@ -49,18 +80,17 @@ function WooProduct() {
                     </div>
                     <a href="/" className="rate-quantity">(10 customer reviews)</a>
                 </div>
-                <p className="description">Alienum phaedrum torquatos nec eu, vis detraxit periculis ex, nihil expete mei. Mei an consequat an. Eius lorem tincidunt vix at, vel pertinax sensibus id, error epicurei mea et. Qui purto zril laoreet. Ex error omnium interpretaris pro.</p>
+                <p className="description">{product?.description}</p>
                 <div className="cart">
                     <div className="quantity">
-                        <label className="quantity-text">1</label>
+                        <label className="quantity-text">{quantity}</label>
                         <div className="quantity-button">
-                            <i className="fa-regular fa-chevron-up"></i>
-                            <i className="fa-regular fa-chevron-down"></i>
+                            <i className="fa-regular fa-chevron-up" onClick={handleUpClick}></i>
+                            <i className="fa-regular fa-chevron-down" onClick={handleDownClick}></i>
                         </div>
                     </div>
                     <button className="add-to-cart">
                         <p className='title'>Add to cart</p>
-                        {/* <i className="fa-solid fa-cart-plus"></i> */}
                         <i className="fa-regular fa-cart-plus"></i>
                     </button>
                 </div>
@@ -76,7 +106,13 @@ function WooProduct() {
                 </div>
                 <div className="meta">
                     <span className="sku">SKU: <p>203</p></span>
-                    <span className="category">Category: <a href='/'>Web cameras</a></span>
+                    <span className="category">Category: 
+                        {
+                            product?.categories?.map(category => (
+                                <Link to='/shop'>{category.name} </Link>
+                            ))
+                        }
+                    </span>
                     <span className="tag">Tag: <a href='/'>Equipment</a></span>
                 </div>
                 <div className="contact">

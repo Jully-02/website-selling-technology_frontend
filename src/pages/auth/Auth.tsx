@@ -1,6 +1,6 @@
 import './Auth.css';
 import Footer from "../../layouts/footer/Footer";
-import Header from "../../layouts/header-home/HeaderHome";
+import Header from "../../layouts/header/Header";
 import SignUp from "./components/SignUp";
 import LogIn from './components/LogIn';
 import Toggle from './components/Toggle';

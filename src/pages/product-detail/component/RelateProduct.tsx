@@ -1,22 +1,48 @@
-import Product from '../../../layouts/product/Product';
+import React, { useEffect, useState } from 'react';
+import ProductCart from '../../../layouts/product/ProductCart';
 import './RelateProduct.css';
+import { Product } from '../../../models/product';
+import { getAllProducts } from '../../../api/product.api';
 
-import Smartphone from '../../../images/public/Smartphone.jpg';
-import SmartMonitor from '../../../images/public/SmartMonitor.jpg';
-import Samsung from '../../../images/public/Samsung.jpg';
-import Headphone from '../../../images/public/Headphone.jpg';
-import Gopro from '../../../images/public/Gopro.jpg';
+interface RelateProductProps {
+    categoryIds: number [];
+    brandIds: number[]
+}
 
-function RelateProduct() {
+const RelateProduct: React.FC<RelateProductProps> = (props) => {
+    const [products, setProducts] = useState<Product[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string>('');
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                if (props.categoryIds.length > 0 && props.brandIds.length > 0) {
+                    const productResponse = await getAllProducts(0, 6, '', props.categoryIds, props.brandIds);
+                    setProducts(productResponse.products.slice(1));
+                } else {
+                    // Handle case where either categoryIds or brandIds is empty
+                    setProducts([]); // or handle differently based on your requirements
+                }
+            } catch (err) {
+                setError('Failed to fetch products')
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchProducts();
+    }, [props.categoryIds, props.brandIds]);
+
     return (
         <div className="relate-product">
             <h3 className="title">Related Products</h3>
             <div className="content">
-                <Product width={'262px'} height={'418px'} imgSrc={SmartMonitor} name={'High Definition Webcam SX-557'} price={'$140'} category={'BLUETOOTH'} />
-                <Product width={'262px'} height={'418px'} imgSrc={Gopro} name={'Camera CCW5 4K Waterproof Cover'} price={'$1,390'} category={'EARBUDS (IN-EAR)'} />
-                <Product width={'262px'} height={'418px'} imgSrc={Headphone} name={'Over-Ear Studio Headphones FX-989 Multicolor'} price={'$790'} category={'PROCESSORS'} />
-                <Product width={'262px'} height={'418px'} imgSrc={Samsung} name={'Tabet Protective Case Ultra Black'} price={'$2,109'} category={'EQUIPMENT'} />
-                <Product width={'262px'} height={'418px'} imgSrc={Smartphone} name={'Smartphone Case Carbon Black Flex'} price={'$99'} category={'EQUIPMENT'} />
+                {
+                    products.map(product => (
+                        <ProductCart key={product.id} width={'262px'} height={'418px'} product={product}/>
+                    ))
+                }
             </div>
         </div>
     )

@@ -1,0 +1,38 @@
+.pagination{
+    padding: 0;
+    margin: 0;
+}
+
+.pagination .page-link {
+    border: none;
+    color: #000;
+    transition: all 0.3s ease-in;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.pagination .page-link a {
+    transition: all 0.3s ease-in;
+}
+
+.pagination .page-link {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pagination .page-item:hover a {
+    color: #2453D4;
+}
+
+.pagination .page-item i {
+    font-size: 14px;
+}
+
+.pagination .page-item .page-link.active {
+    background-color: #2453D4;
+    color: #fff;
+}
+
+.pagination .page-item .page-link:focus {
+    box-shadow: none;
+}

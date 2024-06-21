@@ -8,7 +8,7 @@
   /* height: 250px;
   width: 689px; */
   object-fit: cover;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .element__info {
@@ -16,7 +16,7 @@
   top: 50%;
   transform: translateY(-50%);
   text-align: left;
-  left: 40px;
+  /* left: 9%; */
 }
 
 .element__heading .title {

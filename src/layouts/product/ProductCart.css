@@ -77,6 +77,11 @@
     color: #000;
     display: block;
     text-align: left;
+    transition: all 0.3s ease-in;
+}
+
+.product-content-bottom .product-title:hover {
+    color: #2453D4;
 }
 
 .product-content-bottom .product-price {

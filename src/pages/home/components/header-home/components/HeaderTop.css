@@ -1,4 +1,4 @@
-.header-top {
+.header-top-home {
     height: 92px;
     display: flex;
     padding-left: 4%;
@@ -7,23 +7,23 @@
     align-items: center;
 }
 
-.header-menu {
+.header-top-home .header-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.header-logo {
+.header-top-home .header-logo {
     width: 100px;
     height: 21px;
 }
 
-.header-logo img{
+.header-top-home .header-logo img{
     width: auto;
     height: 100%;
 }
 
-.header-nav ul {
+.header-top-home .header-nav ul {
     display: flex;
     list-style: none;
     margin: 0;
@@ -31,57 +31,61 @@
     padding: 17px;
 }
 
-.header-nav ul li {
+.header-top-home .header-nav ul li {
     padding-right: 21px;
     padding-left: 21px;
 }
 
-.header-nav ul a {
+.header-top-home .header-nav ul a {
     text-decoration: none;
     color: #000;
     font-size: 14px;
     font-weight: 600;
 }
 
-.header-holder {
+.header-top-home .header-holder {
     display: flex;
     align-items: center;
 }
 
-.holder-contact {
+.header-top-home .holder-contact {
     display: flex;
     flex-direction: column;
 }
 
-.holder-logo {
+.header-top-home .holder-logo {
     padding-right: 15px;
 }
 
-.holder-contact a {
+.header-top-home .holder-contact a {
     text-decoration: none;
     color: #000;
     margin-left: auto;
 }
 
-.holder-contact a:first-child {
+.header-top-home .holder-contact a:first-child {
     font-size: 22px;
     font-weight: 600;
     letter-spacing: 0.5px;
     line-height: 24px;
 }
 
-.holder-contact a:last-child {
+.header-top-home .holder-contact a:last-child {
     font-size: 14px;
     color: rgb(102, 107, 122);
     font-weight: 500;
     line-height: 22px;
 }
 
-.menu-item a {
+.header-top-home .menu-item a {
     transition: all 0.3s ease-in;
     font-weight: 500;
 }
 
-.menu-item:hover a {
+.header-top-home .menu-item:hover a {
+    color: #2453D4;
+}
+
+.header-top-home .menu-item.active li{
     color: #2453D4;
 }
