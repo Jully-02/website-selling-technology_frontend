@@ -1,12 +1,17 @@
 import ProductCart from '../../../layouts/product/ProductCart';
 import React, { useEffect, useState } from 'react';
 import { Product } from '../../../models/product';
-import { getAllProducts } from '../../../api/product.api';
 
 interface ProductListProps {
     products: Product[];
     totalProducts: number;
     onSortChange: (selectOption: string) => void;
+    cartItems?: Product[]
+    setCartItems?: React.Dispatch<React.SetStateAction<Product[]>>;
+    quantities?: number[]
+    setQuantities?: React.Dispatch<React.SetStateAction<number[]>>;
+    totalPrice?: number;
+    setTotalPrice?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const ProductList: React.FC<ProductListProps> = (props) => {
@@ -33,7 +38,7 @@ const ProductList: React.FC<ProductListProps> = (props) => {
             <div className="content">
                 {
                     props.products.map((product) => (
-                        <ProductCart key={product.id} width={'264px'} height={'406px'} product={product} />
+                        <ProductCart key={product.id} width={'264px'} height={'406px'} product={product} cartItems={props.cartItems} setCartItems={props.setCartItems} quantities={props.quantities} setQuantities={props.setQuantities} totalPrice={props.totalPrice} setTotalPrice={props.setTotalPrice}/>
                     ))
                 }
             </div>

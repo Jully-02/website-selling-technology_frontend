@@ -1,0 +1,167 @@
+.dashboard-main {
+    padding: 0 30px;
+}
+
+.dashboard-main .dashboard-box-wrapper {
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.dashboard-main .dashboard-box-wrapper-row .box {
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard-main .graph-box {
+    background-image: linear-gradient(#1a50b5, #125be8);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.dashboard-main .graph-box .toggle-icon {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    min-width: 40px !important;
+    width: 40px !important; 
+    height: 40px !important;
+    border-radius: 50% !important;
+}
+
+.dashboard-main .graph-box .toggle-icon svg {
+    color: #fff !important; 
+    font-size: 20px !important;
+    opacity: 1 !important;
+}
+
+.dashboard-main .graph-box p {
+    font-size: 13px;
+    color: #fff;
+    opacity: 0.7;
+}
+
+.dashboard-main .cart {
+    margin: 20px 0;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.dashboard-main .cart .hd {
+    font-size: 18px;
+    font-weight: bold;
+    color: #403e57;
+}
+
+.dashboard-main .card-filters .col-md-3 h4 {
+    font-size: 14px !important;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #403e57;
+}
+
+.dashboard-main .table .thead-dark th {
+    background-color: #1866ee !important;
+    border-color: rgba(255, 255,255, 0.1) !important;
+    color: hsl(0, 0%, 100%);
+    font-size: 13px !important;
+}
+
+.dashboard-main .table tbody td {
+    font-size: 14px !important;
+    color: #2f2d3e;
+    font-weight: 500;
+}
+
+.dashboard-main .table tbody .actions button {
+    min-width: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0px 3px !important;
+}
+
+.dashboard-main .table tbody .actions button svg {
+    font-size: 32px !important;
+}
+
+.dashboard-main .table tbody .actions button.secondary {
+    background-color: rgba(203, 60, 231, 0.2) !important;
+}
+.dashboard-main .table tbody .actions button.success {
+    background-color: rgba(26, 159, 83, 0.2) !important;
+}
+.dashboard-main .table tbody .actions button.error {
+    background-color: rgba(241, 17, 51, 0.2) !important;
+}
+
+.dashboard-main table.v-align td {
+    vertical-align: middle !important;
+}
+
+.dashboard-main .table td .old,
+.dashboard-main .table td .new{
+    display: block;
+    width: 100%;
+}
+
+.dashboard-main table.v-align td .info h6 {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    text-overflow: ellipsis;
+}
+
+
+.dashboard-main table.v-align td .info p {
+    font-size: 13px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #5e5d72;
+    margin-bottom: 0;
+}
+
+.dashboard-main table.v-align td .product-box {
+    width: 270px;
+}
+
+.dashboard-main table td {
+    text-align: center;
+}
+
+.dashboard-main table td .info {
+    width: 65%;
+    flex: 0 0 65%;
+    padding-left: 8px !important;
+}
+
+.dashboard-main table td .img-wrapper {
+    width: 20%;
+    flex: 0 0 20%;
+}
+
+.dashboard-main .table-footer {
+    padding-bottom: 20px;
+}
+
+.dashboard-main .table-footer .pagination {
+    margin-left: auto;
+}
+
+.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    background-color: #125be8 !important;
+}
+
+.dashboard-main .table-footer p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color:rgba(0, 0, 0, 0.8)
+}
+
+.dashboard-main .table-footer b {
+    color: #000;
+}

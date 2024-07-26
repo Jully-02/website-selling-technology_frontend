@@ -66,17 +66,6 @@
     height: 100%;
 }
 
-.auth .container input {
-    background-color: #eee;
-    border: none;
-    margin: 8px 0;
-    padding: 10px 15px;
-    font-size: 15px;
-    border-radius: 8px;
-    width: 100%;
-    outline: none;
-}
-
 .auth .form-container {
     position: absolute;
     top: 0;
@@ -207,11 +196,76 @@
     justify-content: space-between;
 }
 
-.auth .sign-up .full-name input {
+.auth .sign-up .full-name .form-input {
     width: 49% !important;
+}
+
+.auth .sign-up .full-name input {
+    width: 100%;
 }
 
 .auth .sign-up .password {
     width: 100% !important;
 }
 
+.auth .sign-up .note {
+    color: #000;
+}
+
+.auth .sign-up .note > * {
+    color: #2453D4;
+}
+
+.auth .form-input {
+    width: 100%;
+    border-radius: 10px;
+    height: 43px;
+    border: 1px solid #eaeaea;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.auth .sign-up .form-input .error {
+    margin-left: auto;
+    padding-right: 15px;
+}
+
+.auth .sign-up .form-input .error i {
+    color: #F26300;
+}
+
+.auth .container input {
+    background-color: transparent;
+    border: none;
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+.auth .sign-up input {
+    width: 50%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #000;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* For Firefox */
+input:-moz-autofill,
+textarea:-moz-autofill,
+select:-moz-autofill {
+    background-color: transparent;
+}

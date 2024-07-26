@@ -3,7 +3,16 @@ import { Product } from '../../../../../models/product';
 import { getAllProducts } from '../../../../../api/product.api';
 import ProductCart from '../../../../../layouts/product/ProductCart';
 
-const TopCategoryProduct: React.FC = () => {
+interface TopCategoryProductProps {
+    cartItems?: Product[]
+    setCartItems?: React.Dispatch<React.SetStateAction<Product[]>>;
+    quantities?: number[]
+    setQuantities?: React.Dispatch<React.SetStateAction<number[]>>;
+    totalPrice?: number;
+    setTotalPrice?: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const TopCategoryProduct: React.FC<TopCategoryProductProps> = (props) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string>('');
@@ -35,17 +44,9 @@ const TopCategoryProduct: React.FC = () => {
         <div className="top-category__products">
             {
                 products.map(product => (
-                    <ProductCart width={'215px'} height={'357px'} product={product}/>
+                    <ProductCart width={'215px'} height={'357px'} product={product} cartItems={props.cartItems} setCartItems={props.setCartItems} quantities={props.quantities} setQuantities={props.setQuantities} totalPrice={props.totalPrice} setTotalPrice={props.setTotalPrice}/>
                 ))
             }
-            {/* <Product width={'215px'} height={'357px'} imgSrc={Webcam} name={'High Definition Webcam SX-557'} price={'$140'} category={'BLUETOOTH'}/>
-            <Product width={'215px'} height={'357px'} imgSrc={Gopro} name={'Camera CCW5 4K Waterproof Cover'} price={'$1,390'} category={'EARBUDS (IN-EAR)'}/>
-            <Product width={'215px'} height={'357px'} imgSrc={Headphone} name={'Over-Ear Studio Headphones FX-989 Multicolor'} price={'$790'} category={'PROCESSORS'}/>
-            <Product width={'215px'} height={'357px'} imgSrc={Samsung} name={'Tabet Protective Case Ultra Black'} price={'$2,109'} category={'EQUIPMENT'}/>
-            <Product width={'215px'} height={'357px'} imgSrc={Smartphone} name={'Smartphone Case Carbon Black Flex'} price={'$99'} category={'EQUIPMENT'}/>
-            <Product width={'215px'} height={'357px'} imgSrc={SmartMonitor} name={'Led 4K Smart TV Expo GSX Grey'} price={'$1,590'} category={'LAPTOPS'}/>
-            <Product width={'215px'} height={'357px'} imgSrc={Gopro} name={'Camera CCW5 4K Waterproof Cover'} price={'$1,390'} category={'EARBUDS (IN-EAR)'}/>
-            <Product width={'215px'} height={'357px'} imgSrc={Samsung} name={'Tabet Protective Case Ultra Black'} price={'$2,109'} category={'EQUIPMENT'}/> */}
         </div>
     )
 }

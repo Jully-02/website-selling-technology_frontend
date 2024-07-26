@@ -8,17 +8,61 @@ import React, { useEffect, useState } from 'react';
 import { Category } from '../../../../../models/category';
 import { Product } from '../../../../../models/product';
 import { getAllCategories } from '../../../../../api/category.api';
-import { getAllProducts } from '../../../../../api/product.api';
-import { Link } from 'react-router-dom';
+import { getAllProducts, getProductById, getProductsByIds } from '../../../../../api/product.api';
+import { Link, useNavigate } from 'react-router-dom';
+import { deleteCartItemByUserIdAndProductId, getCartFromLocalStorage, getCartItemByUserId, removeFromCart } from '../../../../../api/cart.item.api';
 
-const HeaderBottomHome: React.FC = () => {
+interface HeaderBottomHomeProps {
+    cartItems?: Product[]
+    setCartItems?: React.Dispatch<React.SetStateAction<Product[]>>;
+    quantities?: number[]
+    setQuantities?: React.Dispatch<React.SetStateAction<number[]>>;
+    totalPrice?: number;
+    setTotalPrice?: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const HeaderBottomHome: React.FC<HeaderBottomHomeProps> = ({cartItems: propCartItems, setCartItems: propSetCartItems, quantities: propQuantities, setQuantities: propSetQuantities, totalPrice: propTotalPrice, setTotalPrice: propSetTotalPrice}) => {
+    const [cartItems, setCartItems] = useState<Product[]>(propCartItems || []);
+    const [quantities, setQuantities] = useState<number[]>(propQuantities || []);
+    const [totalPrice, setTotalPrice] = useState<number>(propTotalPrice || 0);
+
+    useEffect(() => {
+        setCartItems(propCartItems!);
+    }, [propCartItems]);
+
+    useEffect(() => {
+        setQuantities(propQuantities!);
+    }, [propQuantities]);
+
+    useEffect(() => {
+        setTotalPrice(propTotalPrice!);
+    }, [propTotalPrice]);
+
+    useEffect(() => {
+        if (propSetCartItems) {
+            propSetCartItems(cartItems);
+        }
+    }, [cartItems]);
+
+    useEffect(() => {
+        if (propSetQuantities) {
+            propSetQuantities(quantities);
+        }
+    }, [quantities]);
+
+    useEffect(() => {
+        if (propSetTotalPrice) {
+            propSetTotalPrice(totalPrice);
+        }
+    }, [totalPrice]);
 
     const [categories, setCategories] = useState<Category[]>([]);
     const [error, setError] = useState<string>('');
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<number[]>([]);
     const [products, setProducts] = useState<Product[]>([]);
-
+    const [user, setUser] = useState(false)
+    const navigate = useNavigate();
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
@@ -30,13 +74,18 @@ const HeaderBottomHome: React.FC = () => {
         setSelectedCategory(category);
     }
 
-    const handleProductClick = (title: string | undefined)=> {
+    const handleProductClick = (title: string | undefined) => {
         if (title) {
             setSearchQuery(title);
         }
-      };
+    };
 
     useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            setUser(true)
+        }
+
         const fetchCategories = async () => {
             try {
                 const categories = await getAllCategories(0, 29);
@@ -66,9 +115,67 @@ const HeaderBottomHome: React.FC = () => {
             }
         }
 
+        const fetchCartItems = async () => {
+            try {
+                const userId = localStorage.getItem('user_id');
+                const token = localStorage.getItem('token');
+                if (userId && token) {
+                    setCartItems([]);
+                    const response = await getCartItemByUserId(Number(userId));
+                    const productIds: number[] = [];
+                    const quantities: number[] = [];
+                    response?.data.data_list.map(
+                        (item: any) => {
+                            productIds.push(item.product_id)
+                            quantities.push(item.quantity);
+                        }
+                    )
+                    setQuantities(quantities)
+                    const items = await getProductsByIds(productIds);
+                    setCartItems(items);
+                    const newTotalPrice = items.reduce((sum, product, index) => {
+                        return sum + (product.price || 0) * quantities[index];
+                    }, 0);
+                    setTotalPrice(newTotalPrice);
+                } else {
+                    const cart = await getCartFromLocalStorage();
+                    const productIds = Array.from(cart?.keys()!);
+                    const quantities = Array.from(cart?.values()!);
+                    setQuantities(quantities);
+                    const items = await getProductsByIds(productIds);
+                    setCartItems(items);
+                    const newTotalPrice = items.reduce((sum, product, index) => {
+                        return sum + (product.price || 0) * quantities[index];
+                    }, 0);
+                    setTotalPrice(newTotalPrice);
+                }
+            } catch (err) {
+                setError('Failed to fetch cart items.')
+            }
+        }
+
         fetchCategories();
         fetchProducts();
+        fetchCartItems();
     }, [searchQuery, selectedCategory])
+
+    const handleRemoveFromCart = (productId: number) => {
+        const userId = localStorage.getItem('user_id');
+        const token = localStorage.getItem('token');
+        if (userId && token) {
+            const product = cartItems.find(cartItem => cartItem.id === productId);
+            const response = deleteCartItemByUserIdAndProductId(Number(userId), productId);
+            setCartItems(cartItems.filter(cartItem =>  cartItem.id !== productId));
+            setTotalPrice(totalPrice - product?.price!)
+            console.log(response);
+        }
+        else {
+            const product = cartItems.find(cartItem => cartItem.id === productId);
+            removeFromCart(productId);
+            setCartItems(cartItems.filter(cartItem => cartItem.id !== productId));
+            setTotalPrice(totalPrice - product?.price!)
+        }
+    };
 
     const getHighlightedText = (text: string | undefined, highlight: string) => {
         if (!highlight) return text;
@@ -80,6 +187,22 @@ const HeaderBottomHome: React.FC = () => {
                 : part
         );
     };
+
+    const handleClickUser = () => {
+        if (!user) {
+            navigate("/auth")
+        }
+    }
+
+    const handleClickLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user_id');
+        navigate("/auth")
+    }
+
+    const handleClickDetail = () => {
+        navigate("/user-information")
+    }
 
     return (
         <div className="header-bottom-home">
@@ -148,73 +271,74 @@ const HeaderBottomHome: React.FC = () => {
                             <a href="/"><i className="fa-solid fa-code-compare"></i></a>
                         </li>
                         <li className="nav-item">
-                            <a href="/"><i className="fa-regular fa-user"></i></a>
+                            <i className="fa-regular fa-user" onClick={handleClickUser}></i>
+                            {
+                                user === true && (
+                                    <ul className="info-user">
+                                        <li className="info-user_content" onClick={handleClickDetail}>
+                                            <span>Your information</span>
+                                        </li>
+                                        <li className="logout" onClick={handleClickLogout}>
+                                            <span>Logout</span>
+                                        </li>
+                                    </ul>
+                                )
+                            }
                         </li>
                         <li className="nav-item">
-                            <a href="/"><i className="fa-regular fa-heart"></i></a>
+                            <Link to={'/wishlist'}><i className="fa-regular fa-heart"></i></Link>
                         </li>
                         <li className="nav-item">
                             <a href="/">
                                 <div className='nav-item__icon'>
                                     <i className="fa-solid fa-cart-shopping"></i>
-                                    <span className='quantity'>20</span>
+                                    <span className='quantity'>{cartItems.length}</span>
                                 </div>
-                                <span>$0</span>
+                                <span>${totalPrice}</span>
                             </a>
-                            <div className="cart">
-                                <ul className="mini-cart">
-                                    <li className="mini-cart__item">
-                                        <div className="img">
-                                            <img src={SmartPhone} alt="" />
+                            {
+                                cartItems.length !== 0 && (
+                                    <div className="cart">
+                                        <ul className="mini-cart" style={{
+                                            height: `${cartItems.length >= 3 ? `324px` : 'auto'}`
+                                        }}
+                                        >
+                                            {
+                                                cartItems.map(product => (
+
+                                                    <div className="mini-cart__item" key={product.id}>
+                                                        <Link className="img" to={`/products/${product?.id}`}>
+                                                            <img src={product.thumbnail} alt="" />
+                                                        </Link>
+                                                        <Link className="info" to={`/products/${product?.id}`}>
+                                                            <h5 className='title'>{product.title}</h5>
+                                                            <span className='price'>${product.price}</span>
+                                                        </Link>
+                                                        <i className="fa-solid fa-xmark" onClick={() => handleRemoveFromCart(product.id)}></i>
+                                                    </div>
+                                                ))
+                                            }
+                                        </ul>
+                                        <div className="detail">
+                                            <span className="title">Total:</span>
+                                            <span className="total-price">${totalPrice}</span>
                                         </div>
-                                        <div className="info">
-                                            <h5 className='title'>High Definition Webcam SX-557</h5>
-                                            <span className='price'>$140</span>
+                                        <div className="action">
+                                            <Link to={"/cart"}>
+                                                <span>View cart & checkout</span>
+                                                <i className="fa-regular fa-angle-right"></i>
+                                            </Link>
                                         </div>
-                                        <i className="fa-solid fa-xmark"></i>
-                                    </li>
-                                    <li className="mini-cart__item">
-                                        <div className="img">
-                                            <img src={TableM} alt="" />
-                                        </div>
-                                        <div className="info">
-                                            <h5 className='title'>High Definition Webcam SX-557</h5>
-                                            <span className='price'>$140</span>
-                                        </div>
-                                        <i className="fa-solid fa-xmark"></i>
-                                    </li>
-                                    <li className="mini-cart__item">
-                                        <div className="img">
-                                            <img src={Webcam} alt="" />
-                                        </div>
-                                        <div className="info">
-                                            <h5 className='title'>High Definition Webcam SX-557</h5>
-                                            <span className='price'>$140</span>
-                                        </div>
-                                        <i className="fa-solid fa-xmark"></i>
-                                    </li>
-                                    <li className="mini-cart__item">
-                                        <div className="img">
-                                            <img src={BluetoothSpeaker} alt="" />
-                                        </div>
-                                        <div className="info">
-                                            <h5 className='title'>High Definition Webcam SX-557</h5>
-                                            <span className='price'>$140</span>
-                                        </div>
-                                        <i className="fa-solid fa-xmark"></i>
-                                    </li>
-                                </ul>
-                                <div className="detail">
-                                    <span className="title">Total:</span>
-                                    <span className="total-price">$3,162</span>
-                                </div>
-                                <div className="action">
-                                    <a href="/">
-                                        <span>View cart & checkout</span>
-                                        <i className="fa-regular fa-angle-right"></i>
-                                    </a>
-                                </div>
-                            </div>
+                                    </div>
+                                )
+                            }
+                            {
+                                cartItems.length === 0 && (
+                                    <div className='cart-empty'>
+                                        <span>No products in the cart.</span>
+                                    </div>
+                                )
+                            }
                         </li>
                     </ul>
                 </div>

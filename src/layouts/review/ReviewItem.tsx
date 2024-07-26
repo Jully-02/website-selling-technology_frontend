@@ -1,14 +1,15 @@
+import { formatDate, formatDateTable } from '../../api/order.api';
+import { Feedback } from '../../models/feedback';
 import './ReviewItem.css';
 import React from 'react';
 
 interface ReviewItemProps {
     imgSrc?: string,
-    time?: string,
-    name?: string,
-    desc?: string
+    feedback: Feedback
 }
 
-const ReviewItem: React.FC<ReviewItemProps> = ({imgSrc, time, name, desc}) => {
+const ReviewItem: React.FC<ReviewItemProps> = ({imgSrc, feedback}) => {
+    console.log(feedback)
     return (
         <div className='review-item'>
             <div className="avatar">
@@ -16,20 +17,24 @@ const ReviewItem: React.FC<ReviewItemProps> = ({imgSrc, time, name, desc}) => {
             </div>
             <div className="info">
                 <div className="info__rate">
-                    <i className="fa-regular fa-star"></i>
-                    <i className="fa-regular fa-star"></i>
-                    <i className="fa-regular fa-star"></i>
-                    <i className="fa-regular fa-star"></i>
-                    <i className="fa-regular fa-star"></i>
+                    {[...Array(5)].map((star, index) => {
+                            index += 1;
+                            return (
+                                <i
+                                    key={index}
+                                    className={index <= feedback.rate ? "fa-solid fa-star" : "fa-regular fa-star"}
+                                ></i>
+                            );
+                        })}
                 </div>
                 <div className="info__time">
-                    <p>{time}</p>
+                    <p>{formatDate(feedback.created_at)}</p>
                 </div>
                 <div className="info__name">
-                    <h3>{name}</h3>
+                    <h3>{feedback.name}</h3>
                 </div>
                 <div className="info__desc">
-                    <p>{desc}</p>
+                    <p>{feedback.comment}</p>
                 </div>
             </div>
         </div>

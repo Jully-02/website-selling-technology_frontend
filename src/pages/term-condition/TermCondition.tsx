@@ -8,7 +8,7 @@ function TermCondition() {
             <Header />
             <div className="term-condition">
                 <h1 className="title">Terms & Conditions</h1>
-                <div className="content">
+                <div className="term-condition__content">
                     <div className="purchase">
                         <h1 className="title">Purchases Terms <br /> and Conditions</h1>
                         <div className="desc">

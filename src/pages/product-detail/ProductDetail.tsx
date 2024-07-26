@@ -17,6 +17,10 @@ const ProductDetail: React.FC  = () => {
     const [brandIds, setBrandIds] = useState<number[]>([]);
     const [categoryIds, setCategoryIds] = useState<number[]>([]);
 
+    const [cartItems, setCartItems] = useState<Product[]>([]);
+    const [totalPrice, setTotalPrice] = useState<number>(0);
+    const [quantities, setQuantities] = useState<number[]>([]);
+
     useEffect(() => {
         const fetchProduct = async () => {
             try {
@@ -47,10 +51,10 @@ const ProductDetail: React.FC  = () => {
 
     return (
         <>
-            <Header />
-            <WooProduct product={product} />
-            <WooTab />
-            <RelateProduct categoryIds={categoryIds} brandIds={brandIds}/>
+            <Header cartItems={cartItems} setCartItems={setCartItems} quantities={quantities} setQuantities={setQuantities} totalPrice={totalPrice} setTotalPrice={setTotalPrice}/>
+            <WooProduct product={product} cartItems={cartItems} setCartItems={setCartItems} quantities={quantities} setQuantities={setQuantities} totalPrice={totalPrice} setTotalPrice={setTotalPrice}/>
+            <WooTab productId={Number(id)}/>
+            <RelateProduct categoryIds={categoryIds} brandIds={brandIds} cartItems={cartItems} setCartItems={setCartItems} quantities={quantities} setQuantities={setQuantities} totalPrice={totalPrice} setTotalPrice={setTotalPrice}/>
             <Footer />
         </>
     )

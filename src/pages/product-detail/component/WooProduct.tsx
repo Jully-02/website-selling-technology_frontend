@@ -7,12 +7,24 @@ import Airpod4 from '../../../images/public/Airpod-4.jpg';
 import React, { useState } from 'react';
 import { Product } from '../../../models/product';
 import { Link } from 'react-router-dom';
+import { addToCart, insertCartItem } from '../../../api/cart.item.api';
+import { CartItemDTO } from '../../../dtos/cart.item.dto';
+import { FavoriteProductDTO } from '../../../dtos/favorite.product.dto';
+import { addToWishlist, insertFavoriteProduct } from '../../../api/wishlist.api';
+import { getProductById } from '../../../api/product.api';
+import { formatCurrency } from '../../../api/order.api';
 
 interface WooProductProps {
     product?: Product
+    cartItems?: Product[]
+    setCartItems?: React.Dispatch<React.SetStateAction<Product[]>>;
+    quantities?: number[]
+    setQuantities?: React.Dispatch<React.SetStateAction<number[]>>;
+    totalPrice?: number;
+    setTotalPrice?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const WooProduct: React.FC<WooProductProps> = ({product}) => {
+const WooProduct: React.FC<WooProductProps> = ({product, cartItems, setCartItems, quantities, setQuantities, totalPrice, setTotalPrice}) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [quantity, setQuantity] = useState(1);
 
@@ -39,6 +51,68 @@ const WooProduct: React.FC<WooProductProps> = ({product}) => {
     const handleDownClick = () => {
         setQuantity((preQuantity) => preQuantity === 1 ? 1 : preQuantity - 1
         )
+    }
+
+    const handleAddToCart = async () => {
+        const userId = localStorage.getItem("user_id");
+        const token = localStorage.getItem("token");
+        if (userId && token) {
+            const cartItemDTO: CartItemDTO = {
+                user_id: Number(userId),
+                product_id: Number(product?.id),
+                quantity: quantity
+            };
+            try {
+                const response = await insertCartItem(cartItemDTO);
+                console.log(response)
+                const responseProduct: Product = await getProductById(Number(product?.id));
+                setCartItems && setCartItems((prevCartItems) => {
+                    const newCartItems = [...prevCartItems, responseProduct];
+                    console.log(newCartItems); // Log newCartItems để kiểm tra giá trị mới
+                    return newCartItems;
+                });
+                setQuantities && setQuantities((prevQuantities) => [...prevQuantities, 1]);
+                setTotalPrice && setTotalPrice((prevTotalPrice) => prevTotalPrice + responseProduct.price!);
+                console.log(cartItems)
+            } catch (err) {
+                console.log('Failed to add product to cart:', err);
+            }
+        }
+        else {
+            try {
+                await addToCart(product?.id!, quantity);
+                setQuantities!([...quantities!, quantity]);
+                const responseProduct: Product = await getProductById(Number(product?.id));
+                setCartItems!([...cartItems!, responseProduct]);
+                setTotalPrice!(totalPrice! + responseProduct.price!);
+            } catch (error) {
+                console.error('Failed to add product to cart:', error);
+            }
+        }
+    }
+    
+    const handleAddToWishlist = async () => {
+        const userId = localStorage.getItem("user_id");
+        const token = localStorage.getItem("token");
+        if (userId && token) {
+            const favoriteProductDTO: FavoriteProductDTO = {
+                user_id: Number(userId),
+                product_id: Number(product?.id),
+            };
+            try {
+                const response = await insertFavoriteProduct(favoriteProductDTO);
+                console.log(response)
+            } catch (err) {
+                console.log('Failed to add product to cart:', err);
+            }
+        }
+        else {
+            try {
+                await addToWishlist(product?.id!);
+            } catch (error) {
+                console.error('Failed to add product to cart:', error);
+            }
+        }
     }
 
     return (
@@ -69,7 +143,7 @@ const WooProduct: React.FC<WooProductProps> = ({product}) => {
             </div>
             <div className="woo-product__info">
                 <h1 className="title">{product?.title}</h1>
-                <h3 className="price">${product?.price}</h3>
+                <h3 className="price">{formatCurrency(product?.price!)}</h3>
                 <div className="rate">
                     <div className="rate-star">
                         <i className="fa-regular fa-star"></i>
@@ -89,13 +163,13 @@ const WooProduct: React.FC<WooProductProps> = ({product}) => {
                             <i className="fa-regular fa-chevron-down" onClick={handleDownClick}></i>
                         </div>
                     </div>
-                    <button className="add-to-cart">
+                    <button className="add-to-cart" onClick={handleAddToCart}>
                         <p className='title'>Add to cart</p>
                         <i className="fa-regular fa-cart-plus"></i>
                     </button>
                 </div>
                 <div className="action">
-                    <div className="wishlist">
+                    <div className="wishlist" onClick={handleAddToWishlist}>
                         <i className="fa-regular fa-heart"></i>
                         <span>Add to wishlist</span>
                     </div>
@@ -109,7 +183,7 @@ const WooProduct: React.FC<WooProductProps> = ({product}) => {
                     <span className="category">Category: 
                         {
                             product?.categories?.map(category => (
-                                <Link to='/shop'>{category.name} </Link>
+                                <Link to='/shop' key={category.id}>{category.name} </Link>
                             ))
                         }
                     </span>

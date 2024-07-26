@@ -1,0 +1,577 @@
+.product-upload {
+    /* height: 1050px; */
+    padding: 0 30px;
+}
+.product-upload .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-upload .heading-left .title {
+    font-size: 31px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.product-upload .heading-left .subtitle {
+    margin: 0;
+    font-size: 16px;
+    color: rgb(82, 91, 117);
+    font-weight: 400;
+} 
+
+.product-upload .heading-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-upload .heading-right>div {
+    padding: 8px 24px;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.product-upload .heading-right>div:hover {
+    background-color: #E3E6ED;
+}
+
+
+.product-upload .heading-right .btn-save-draft {
+    color: #3874FF;
+}
+
+.product-upload .heading-right .btn-publish {
+    background-color: #3874FF;
+    color: #fff;
+    border: none;
+}
+
+.product-upload .heading-right .btn-publish:hover {
+    background-color: #004DFF;
+}
+
+.product-upload .content {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.product-upload .content .left {
+    height: 100vh;
+    /* background-color: red; */
+    width: 65%;
+}
+
+.product-upload .content .left>div {
+    margin-bottom: 32px;
+}
+
+.product-upload .content .title {
+    font-size: 20px;
+}
+
+.product-upload .content .product-title .input-title {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.product-upload .content .product-title .input-title input{
+    width: 100%;
+    border: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid rgb(203, 208, 221);
+    transition: all 0.3s ease-in;
+}
+
+.product-upload .content .product-title .input-title input:focus {
+    background-color: #fff;
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 0 0 2px #2453d4;
+}
+
+.product-upload .content .input-description {
+    width: 100%;
+}
+
+.product-upload .content .input-description textarea {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    transition: all 0.3s ease-in;
+    background-color: #fff;
+    padding: 8px 16px;
+    font-size: 13px;
+    outline: none;
+}
+
+.product-upload .content .input-description textarea:focus {
+    background-color: #fff;
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 0 0 2px #2453D4;
+}
+
+.product-upload .content .product-description .actions {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.product-upload .content .product-description .actions>div {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.product-upload .content .product-description .actions>div .icon {
+    padding: 5px 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.product-upload .content .product-description .actions>div .icon:hover {
+    background-color: #E3E6ED;
+}
+
+.product-upload .content .product-description .actions>div > * {
+    font-size: 18px;
+    color: #525B75;
+    margin-right: 3px;
+}
+
+.product-upload .content .input-images {
+    padding: 48px 32px;
+    border-radius: 5px;
+    border: 1px dashed rgb(203, 208, 221);
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.product-upload .content .input-images input {
+    display: none;
+}
+
+.product-upload .content .input-images .images{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-upload .content .input-images .images span {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6E7891;
+    margin-bottom: 5px;
+}
+
+.product-upload .content .input-images .images a {
+    text-decoration: none;
+}
+
+.product-upload .content .inventory {
+    display: flex;
+}
+
+.product-upload .content .inventory-sidebar {
+    width: 35%;
+    border-top: 1px solid rgb(203, 208, 221);
+    border-bottom: 1px solid rgb(203, 208, 221);
+}
+
+.product-upload .content .inventory-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-upload .content .inventory-sidebar ul li {
+    padding: 14px 8px;
+    border-bottom: 1px solid rgb(203, 208, 221);
+    border-right: 1px solid rgb(203, 208, 221);
+    cursor: pointer;
+}
+
+.product-upload .content .inventory-sidebar ul li:last-child {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-upload .content .inventory-sidebar ul li div {
+    display: flex;
+    align-items: center;
+}
+
+.product-upload .content .inventory-sidebar ul li .advanced {
+    position: relative;
+}
+
+.product-upload .content .inventory-sidebar ul li .advanced::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: #F5F7FA;
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: 2;
+    border: 1px solid rgb(203, 208, 221);
+}
+
+
+.product-upload .content .inventory-sidebar ul li:last-child {
+    border: none;
+    border-right: 1px solid rgb(203, 208, 221);
+}
+
+.product-upload .content .inventory-sidebar ul span {
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+
+.product-upload .content .inventory-content {
+    width: 65%;
+    padding: 16px 0 16px 24px;
+    border-top: 1px solid rgb(203, 208, 221);
+    border-bottom: 1px solid rgb(203, 208, 221);
+}
+
+
+.product-upload .content .inventory-content .content-price {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-upload .content .inventory-content .content-price>div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.product-upload .content .inventory-content .content-price>div h3 {
+    font-size: 16px;
+}
+
+.product-upload .content .inventory-content .content-price>div input {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    background-color: #fff;
+    outline: none;
+    transition: all 0.3s ease-in;
+    width: 100%;
+    font-size: 13px;
+}
+
+.product-upload .content .inventory-content .content-price>div input:focus {
+    background-color: #fff;
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 0 0 2px #2453d4;
+}
+
+.product-upload .content .inventory-content .content-restock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.product-upload .content .inventory-content .content-restock .restock-heading .title {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.product-upload .content .inventory-content .content-restock .restock-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.product-upload .content .inventory-content .content-restock input {
+    width: 80%;
+    border: 1px solid rgb(203, 208, 221);
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+    transition: all 0.3s ease-in;
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.product-upload .content .inventory-content .content-restock input:focus {
+    background-color: #fff;
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 0 0 2px #2453d4;
+}
+
+.product-upload .content .inventory-content .content-restock .btn-confirm {
+    padding: 10px 24px;
+    border-radius: 5px;
+    background-color: #3874FF;
+    color: #fff;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.product-upload .content .inventory-content .content-restock .btn-confirm i {
+    margin-right: 5px;
+}
+
+.product-upload .content .inventory-content .content-restock .btn-confirm:hover {
+    background-color: #2453D4;
+}
+
+.product-upload .content .inventory-content .content-restock .restock-context>div {
+    display: flex;
+    align-items: center;
+    padding: 4px 1px;
+}
+
+.product-upload .content .inventory-content .content-restock .restock-context .title {
+    width: 200px;
+}
+
+.product-upload .content .inventory-content .content-restock .restock-context>div > * {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.product-upload .content .inventory-content .content-restock .restock-context>div .title {
+    font-weight: 600;
+}
+
+.product-upload .content .inventory-content .content-restock .restock-context>div > p {
+    color: #6B748A;
+}
+
+.product-upload .content .inventory-content .content-shipping {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.product-upload .content .inventory-content .content-shipping .shipping-heading .title {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.product-upload .content .inventory-content .content-shipping .shipping-heading .form-check {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.product-upload .content .inventory-content .content-shipping .shipping-heading .form-check .state {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #BC3803;
+    padding: 2px 8px;
+    background-color: #ffefca;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 10px;
+    border: 0.1px solid #ffcc85;
+}
+
+.product-upload .content .inventory-content .content-shipping .shipping-heading .form-check input {
+    width: 16px;
+    height: 16px;
+    margin-right: 7px;
+}
+
+.product-upload .content .inventory-content .content-shipping .shipping-heading .form-check label {
+    font-size: 16px;
+    font-weight: 500;
+}
+.product-upload .content .inventory-content .content-shipping .shipping-heading .form-desc {
+    padding-left: 24px;
+    font-size: 13px;
+    color: #6D7484;
+}
+
+.product-upload .content .inventory-content .content-shipping .sub .text{
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.product-upload .content .inventory-content .content-shipping .sub a {
+    text-decoration: none;
+}
+
+
+.product-upload .content .right {
+    width: 35%;
+}
+
+.product-upload .content .right>div {
+    margin-bottom: 25px;
+}
+
+.product-upload .content .right>div:last-child {
+    margin-bottom: 0;
+}
+
+.product-upload .content .right .organize,
+.product-upload .content .right .variant {
+    padding: 24px;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    background-color: #fff;
+}
+
+.product-upload .content .right .organize>div,
+.product-upload .content .right .variant>div {
+    margin-bottom: 20px;
+}
+
+.product-upload .content .right .organize>div:last-child, 
+.product-upload .content .right .variant>div:last-child{
+    margin-bottom: 0;
+}
+
+.product-upload .content .right .organize>div>div,
+.product-upload .content .right .variant>div>div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-upload .content .right .organize .title,
+.product-upload .content .right .variant .variant-item .title {
+    font-size: 16px;
+    margin: 0;
+}
+
+.product-upload .content .right .organize .text,
+.product-upload .content .right .variant .text {
+    font-size: 13px;
+    color: #2453d4;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.product-upload .content .right .organize .text:hover,
+.product-upload .content .right .variant .text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.product-upload .content .right .organize select,
+.product-upload .content .right .variant select {
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    outline: none;
+    background-color: #fff;
+    font-size: 13px;
+    transition: all 0.3s ease-in;
+}
+
+.product-upload .content .right .organize select:focus,
+.product-upload .content .right .variant select:focus {
+    background-color: #fff;
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 0 0 2px #2453d4;
+}
+
+.product-upload .content .right .organize input,
+.product-upload .content .right .variant textarea {
+    border: 1px solid rgb(203, 208, 221);
+    padding: 8px 16px;
+    font-size: 13px;
+    outline: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in;
+    background-color: #fff;
+    width: 100%;
+}
+
+.product-upload .content .right .variant .option-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-upload .content .right .organize input:focus,
+.product-upload .content .right .variant textarea:focus {
+    background-color: #fff;
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 0 0 2px #2453d4;
+}
+
+.product-upload .content .right .variant .option-content select {
+    margin-bottom: 20px;
+}
+
+.product-upload .content .right .variant>.title {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.product-upload .content .right .variant>div {
+    padding-bottom: 20px;
+    border-bottom: 1px dashed rgb(203, 208, 221);
+}
+
+.product-upload .content .right .variant>div:nth-last-child(2) {
+    border: none;
+    padding: 0;
+}
+
+.product-upload .content .right .variant .btn-add-another {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border-radius: 5px;
+    border: 1px solid #eaeaea !important;
+    background-color: #F5F7FA;
+    font-size: 13px;
+    color: #2453D4;
+    font-weight: 500;
+    transition: all 0.3s ease-in;
+}
+
+.product-upload .content .right .variant .btn-add-another:hover {
+    cursor: pointer;
+    background-color: #E3E6ED;
+}

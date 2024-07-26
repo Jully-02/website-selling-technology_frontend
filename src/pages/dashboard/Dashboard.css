@@ -1,0 +1,44 @@
+.dashboard .main .sidebar-wrapper {
+    width: 20%;
+    flex: 0 0 20%;
+    transition: all 0.3s ease-in-out;
+    border-right: 1px solid rgb(203, 208, 221);
+}
+
+.dashboard .main .sidebar-wrapper .sidebar {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    left: 0px;
+    max-height: calc(100% - 70px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+
+.dashboard .main .sidebar-wrapper .sidebar::-webkit-scrollbar {
+    width: 3px !important;
+}
+
+.dashboard .main .sidebar-wrapper .sidebar::-webkit-scrollbar-thumb {
+    background: transparent !important;
+}
+
+.dashboard .main .sidebar-wrapper:hover .sidebar::-webkit-scrollbar {
+    background: #ccc !important;
+}
+
+.dashboard .content {
+    background-color: #F5F7FA;
+    width: 100vw;
+}
+
+.main .content {
+    width: 80%;
+    flex: 0 0 80%;
+}
+
+.dashboard .right-content {
+    padding: 90px 0;
+}

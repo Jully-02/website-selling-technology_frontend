@@ -7,6 +7,12 @@ import { getAllProducts } from '../../../api/product.api';
 interface RelateProductProps {
     categoryIds: number [];
     brandIds: number[]
+    cartItems?: Product[]
+    setCartItems?: React.Dispatch<React.SetStateAction<Product[]>>;
+    quantities?: number[]
+    setQuantities?: React.Dispatch<React.SetStateAction<number[]>>;
+    totalPrice?: number;
+    setTotalPrice?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const RelateProduct: React.FC<RelateProductProps> = (props) => {
@@ -40,7 +46,7 @@ const RelateProduct: React.FC<RelateProductProps> = (props) => {
             <div className="content">
                 {
                     products.map(product => (
-                        <ProductCart key={product.id} width={'262px'} height={'418px'} product={product}/>
+                        <ProductCart key={product.id} width={'262px'} height={'418px'} product={product} cartItems={props.cartItems} setCartItems={props.setCartItems} quantities={props.quantities} setQuantities={props.setQuantities} totalPrice={props.totalPrice} setTotalPrice={props.setTotalPrice}/>
                     ))
                 }
             </div>

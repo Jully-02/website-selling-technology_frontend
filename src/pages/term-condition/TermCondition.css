@@ -13,7 +13,7 @@
     margin-bottom: 30px;
 }
 
-.term-condition .content > div {
+.term-condition .term-condition__content > div {
     display: flex;
     justify-content: space-between;
     padding: 45px 0;
@@ -21,43 +21,43 @@
     border-bottom: 1px solid #eaeaea;
 }
 
-.term-condition .content .title {
+.term-condition .term-condition__content .title {
     font-size: 30px;
     font-weight: 600;
 }
 
-.term-condition .content .desc {
+.term-condition .term-condition__content .desc {
     width: 60%;
     color: #333;
     font-size: 16px;
 }
 
-.term-condition .content .desc .sub {
+.term-condition .term-condition__content .desc .sub {
     display: flex;
     align-items: flex-start;
     width: 65%;
 }
 
-.term-condition .content .desc .sub i {
+.term-condition .term-condition__content .desc .sub i {
     padding-top: 5px;
     margin-right: 10px;
     color: #000;
 }
 
-.term-condition .content .desc ul {
+.term-condition .term-condition__content .desc ul {
     margin: 0;
     padding-left: 17px;
 }
 
-.term-condition .content .desc ul li {
+.term-condition .term-condition__content .desc ul li {
     margin-bottom: 15px;
 }
 
-.term-condition .content .desc ul li:last-child {
+.term-condition .term-condition__content .desc ul li:last-child {
     margin: 0;
 }
 
-.term-condition .content .website .desc > p {
+.term-condition .term-condition__content .website .desc > p {
     margin-bottom: 30px;
 }
 

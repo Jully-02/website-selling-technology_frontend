@@ -1,0 +1,24 @@
+.sign-up-state {
+    margin: 0 4%;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.sign-up-state i {
+    font-size: 200px;
+    color: #25AE88;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.sign-up-state span {
+    font-size: 20px;
+    display: block;
+    margin-top: 15px;
+    font-style: italic;
+}

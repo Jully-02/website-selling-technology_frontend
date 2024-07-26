@@ -9,7 +9,16 @@ import { Product } from '../../../models/product';
 import { getAllProducts } from '../../../api/product.api';
 import Loading from '../../../layouts/loading/Loading';
 
-const TopSellingProduct: React.FC = () => {
+interface TopSellingProductProps {
+    cartItems?: Product[]
+    setCartItems?: React.Dispatch<React.SetStateAction<Product[]>>;
+    quantities?: number[]
+    setQuantities?: React.Dispatch<React.SetStateAction<number[]>>;
+    totalPrice?: number;
+    setTotalPrice?: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const TopSellingProduct: React.FC<TopSellingProductProps> = (props) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string>('');
@@ -71,7 +80,7 @@ const TopSellingProduct: React.FC = () => {
             <div className="top-selling-content">
                 {
                     visibleProducts.map(product => (
-                        <ProductCard width={'333px'} height={'475px'} product={product}/>
+                        <ProductCard width={'333px'} height={'475px'} product={product} cartItems={props.cartItems} setCartItems={props.setCartItems} quantities={props.quantities} setQuantities={props.setQuantities} totalPrice={props.totalPrice} setTotalPrice={props.setTotalPrice}/>
                     ))
                 }
             </div>

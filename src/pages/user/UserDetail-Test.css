@@ -1,0 +1,325 @@
+.user-content {
+    margin: 0 4%;
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #DDE3EE;
+    height: 590px;
+    border-radius: 50px;
+    padding: 0 20px;
+}
+
+
+.user-content .info-avatar {
+    display: flex;
+    flex-direction: column;
+    height: 245px;
+    width: 380px;
+    background-color: #fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 0 44px 24px 44px;
+    position: relative;
+    border-bottom: 1px solid #eaeaea;
+    align-items: center;
+}
+
+.user-content .info-avatar .avatar {
+    width: 290px;
+    height: 290px;
+    position: absolute;
+    top: -155px;
+    border-radius: 50%;
+    border: 1px solid rgb(238, 95, 56);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-content .info-avatar .avatar img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+}
+
+.user-content .info-avatar .info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 10px;
+    margin-left: 0;
+}
+
+.user-content .info-avatar .info .name {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.user-content .info-avatar .info .sub {
+    font-size: 16px;
+    color: rgb(99, 99, 99);
+    font-weight: 500;
+}
+
+.user-content .info-content {
+    width: 380px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 24px 44px;
+    background-color: #fff;
+}
+
+.user-content .info-content>div {
+    display: flex;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.user-content .info-content>div:last-child {
+    padding-bottom: 0;
+}
+
+.user-content .info-content .icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgb(238, 95, 56);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.user-content .info-content .icon i {
+    color: rgb(238, 95, 56);
+}
+
+.user-content .info-content>div .content {
+    font-size: 18px;
+    color: rgb(99, 99, 99);
+    transition: all 0.3s ease-in;
+}
+
+.user-content .info-content>div .content:hover {
+    color: rgb(238, 95, 56);
+    cursor: pointer;
+}
+
+.user-content .info-details {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-content .info-details .info .message {
+    font-size: 24px;
+    font-style: italic;
+    color: rgb(238, 95, 56);
+}
+
+.user-content .info-details .info .name {
+    font-size: 60px;
+    color: rgb(0, 2, 72);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.user-content .info-details .info .introduce {
+    font-size: 32px;
+    color: rgb(51, 51, 51);
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.user-content .info-details .info .quote {
+    max-width: 60%;
+    margin-top: 20px;
+}
+.user-content .info-details .info .quote .text {
+    font-size: 20px;
+    color: rgb(99, 99, 99);
+    font-weight: 400;
+}
+
+.user-content .info-details .button-update {
+    display: flex;
+    width: 198px;
+    padding: 13px 20px;
+    background-color: rgb(238, 95, 56);
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    margin-top: 25px;
+    transition: all 0.3s ease-in;
+}
+
+.user-content .info-details .button-update:hover {
+    cursor: pointer;
+    background-color: rgb(51, 51, 51);
+}
+
+.user-content .info-details .button-update .text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.user-content .info-details .button-update .icon {
+    width: 34px;
+    height: 34px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-content .info-details .button-update .icon i {
+    color: rgb(238, 95, 56);
+}
+
+.user-content .info-details .follow {
+    display: flex;
+    align-items: center;
+}
+
+.user-content .info-details .follow .title {
+    color: rgb(51, 51, 51);
+    font-size: 22px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.user-content .info-details .follow .content {
+    display: flex;
+}
+
+.user-content .info-details .follow .content>div {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgb(238, 95, 56);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.user-content .info-details .follow .content i {
+    color: rgb(238, 95, 56);
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.user-content .info-details .follow .content>div:hover {
+    background-color: rgb(238, 95, 56);
+    cursor: pointer;
+}
+
+.user-content .info-details .follow .content>div:hover i {
+    color: #fff;
+}
+
+.user-content .info-details .actions .icon-order,
+.user-content .info-details .actions .icon-cart,
+.user-content .info-details .actions .icon-logout {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.user-content .info-details .actions i {
+    color: rgb(238, 95, 56);
+    font-size: 18px;
+}
+
+.user-content .info-details .actions>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.user-content .info-details .actions>div:last-child {
+    margin-bottom: 0;
+}
+
+.user-content .info-details .actions .detail-order,
+.user-content .info-details .actions .detail-cart,
+.user-content .info-details .actions .detail-logout {
+    height: 44px;
+    width: 150px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background: rgb(238, 95, 56);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 22px;
+}
+
+.user-content .info-details .actions .text {
+    margin-bottom: 0;
+    color: #fff;
+    margin-left: 40px;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.user-content .info-summary .form-edit{
+    display: flex;
+    align-items: end;
+}
+
+.user-content .info-summary .info .form-edit {
+    padding: 0 44px;
+}
+
+.user-content .info-summary .form-edit input {
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    background-color: transparent;
+    width: 100%;
+}
+
+.user-content .info-summary .form-edit input:focus {
+    outline: none;
+}
+
+.user-content .info-summary .form-edit .last-name {
+    text-align: right;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    width: 50%;
+}
+
+.user-content .info-summary .form-edit span {
+    font-size: 26px;
+    font-weight: 900;
+}
+
+.user-content .info-summary .form-edit .first-name {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+

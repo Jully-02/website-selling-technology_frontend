@@ -36,17 +36,11 @@
 
 .rate-wrapper .rate-stars i {
     margin-right: 3px;
-    color: #676770;
+    color: #E5780B;
 }
 
 .rate-wrapper .rate-stars i:last-child {
     margin: 0;
-}
-
-.rate-wrapper .rate-stars i:nth-child(1),
-.rate-wrapper .rate-stars i:nth-child(2),
-.rate-wrapper .rate-stars i:nth-child(3) {
-    color: #000;
 }
 
 .add-review__desc {

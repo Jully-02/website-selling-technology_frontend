@@ -1,0 +1,639 @@
+.user-detail {
+    padding: 0 4%;
+    margin-top: 120px;
+}
+
+.user-detail .user-info {
+    display: flex;
+    gap: 20px;
+    padding: 0 30px;
+    margin-top: 25px;
+}
+
+.user-detail .user-info .left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    padding: 24px 24px 16px 24px;
+    background-color: #fff;
+    justify-content: space-between;
+}
+
+.user-detail .user-info .left .top {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed rgb(203, 208, 221);
+}
+
+.user-detail .user-info .left .top .c-info .name {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.user-detail .user-info .left .top .c-info .state {
+    font-size: 16px;
+    color: rgb(62, 70, 91);
+}
+
+.user-detail .user-info .left .top .c-info .social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.user-detail .user-info .left .top .c-info i {
+    color: rgba(138, 148, 173, 0.75);
+    font-size: 15px;
+}
+
+.user-detail .user-info .left .top .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.user-detail .user-info .left .top .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-detail .user-info .left .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.user-detail .user-info .left .bottom > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-detail .user-info .left .bottom .title {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.user-detail .user-info .left .bottom .sub {
+    font-size: 20px;
+    color:rgb(62, 70, 91);
+    /* font-weight: 500; */
+}
+
+.user-detail .user-info .right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    padding: 24px;
+    background-color: #fff;
+}
+
+.user-detail .user-info .right .heading {
+    display: flex;
+    flex-direction: row !important;
+    text-align: center;
+}
+
+.user-detail .user-info .right .title {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.user-detail .user-info .right i {
+    font-size: 15px;
+    margin-top: 8px;
+    margin-left: 10px;
+    color: rgb(138, 148, 173);
+}
+
+.user-detail .user-info .right > div {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.user-detail .user-info .right > div:last-child,
+.user-detail .user-info .right > div:first-child {
+    margin-bottom: 0;
+}
+
+.user-detail .user-info .right > div .text {
+    font-weight: 400;
+    color: rgb(62, 70, 91);
+}
+
+.user-detail .user-info .right .email .text {
+    color: rgb(56, 116, 255);
+}
+
+.user-detail .user-info .right .email .text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #003cc7;
+}
+
+.user-detail .user-info .right .phone .text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.user-detail .user-info .right .form-edit input {
+    border: none;
+    border-bottom: 1px solid rgb(203, 208, 221);
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+}
+
+.user-detail .form-edit {
+    display: flex;
+    align-items: end;
+}
+
+.user-detail .user-info .left input {
+    border: none;
+    border-bottom: 1px solid rgb(203, 208, 221);
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.user-detail .user-info .left .form-edit .last-name {
+    font-size: 25px;
+    font-weight: 700;
+    width: 20%;
+}
+
+.user-detail .user-info .left .form-edit .first-name {
+    font-size: 25px;
+    font-weight: 700;
+    width: 60%;
+}
+
+.user-detail .note-cus {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    background-color: #fff;
+    margin: 0 30px;
+    margin-top: 15px;
+}
+
+.user-detail .note-cus > .title {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.user-detail .note-cus textarea {
+    border: 1px solid rgb(203, 208, 221);
+    padding: 8px 16px;
+    font-size: 13px;
+    outline: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in;
+    background-color: #fff;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.user-detail .note-cus textarea:focus {
+    background-color: #fff;
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 0 0 2px #2453d4;
+}
+
+.user-detail .note-cus .btn-add-note {
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    background-color: #F5F7FA;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(33, 100, 255);
+    margin-top: 15px;
+}
+
+.user-detail .note-cus .btn-add-note:hover:hover {
+    cursor: pointer;
+    background-color: #E3E6ED;
+}
+
+.user-detail .note-cus .feedback-cus {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.user-detail .note-cus .feedback-cus .feedback-item-cus {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    font-weight: 500;
+    gap: 10px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed rgb(203, 208, 221);
+    margin-bottom: 24px;
+}
+
+.user-detail .note-cus .feedback-cus .feedback-item-cus:last-child {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.user-detail .note-cus .feedback-cus .feedback-item-cus .time {
+    align-self: end;
+    color: rgba(82, 91, 117, 0.85);
+    font-weight: 400;
+}
+
+
+.user-detail .table-orders-cus {
+    margin-top: 30px;
+    padding: 0 30px;
+    /* background-color: #fff; */
+}
+
+.user-detail .table-orders-cus > .title {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.user-detail .table-orders-cus .total-order-cus {
+    color: rgb(82, 91, 117);
+    font-weight: 500;
+}
+
+.user-detail .table-orders-cus thead th {
+    border-top: 1px solid rgb(203, 208, 221);
+    background-color: transparent;
+}
+
+.user-detail .table-orders-cus thead th > div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.user-detail .table-orders-cus thead th:nth-child(1) > div {
+    justify-content: left;
+}
+.user-detail .table-orders-cus thead th:nth-child(2) > div {
+    justify-content: right;
+}
+
+.user-detail .table-orders-cus thead th:last-child > div {
+    justify-content: end;
+}
+
+.user-detail .table-orders-cus thead th .title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.user-detail .table-orders-cus thead th .filter i {
+    font-size: 10px;
+    line-height: 0.5;
+}
+
+.user-detail .table-orders-cus thead th .filter {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.user-detail .table-orders-cus tbody .product-name__content {
+    display: flex;
+    align-items: center;
+}
+
+.user-detail .table-orders-cus tbody .product-name__content .image {
+    width: 53px;
+    height: 53px;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    flex-shrink: 0;
+}
+
+.user-detail .table-orders-cus tbody .product-name__content .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.user-detail .table-orders-cus thead th {
+    vertical-align: middle;
+    height: 35px;
+}
+
+.user-detail .table-orders-cus tbody td {
+    font-size: 13px;
+    font-weight: 500;
+    vertical-align: middle;
+    height: 40px;
+    background-color: transparent;
+}
+
+.user-detail .table-orders-cus tbody td > * {
+    text-decoration: none;
+}
+
+.user-detail .table-orders-cus tbody td:nth-child(2) {
+    text-align: right;
+    width: 30px;
+    padding-right: 15px;
+}
+
+.user-detail .table-orders-cus tbody td .image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+
+.user-detail .table-orders-cus tbody td .b-user {
+    display: flex;
+    align-items: center;
+}
+
+.user-detail .table-orders-cus tbody td .b-user .name {
+    margin-left: 16px;
+}
+
+.user-detail .table-orders-cus tbody td .b-user .name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.user-detail .table-orders-cus tbody td input {
+    width: 16px;
+    height: 16px;
+}
+
+.user-detail .table-orders-cus tbody td .image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+.user-detail .table-orders-cus tbody td:last-child {
+    text-align: right;
+}
+
+.user-detail .table-orders-cus tbody td .b-payment-status.unpaid{
+    padding: 2px 8px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #ffefca;
+    border: 1px solid #ffcc85;
+    color: #bc3803;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.user-detail .table-orders-cus tbody td .b-payment-status.unpaid i{
+    margin-left: 5px;
+    font-size: 10px;
+    color: #bc3803;
+}
+
+.user-detail .table-orders-cus tbody td .b-payment-status.paid,
+.user-detail .table-orders-cus tbody td .b-fulfilment-status.fulfilled {
+    padding: 2px 8px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(217, 251, 208);
+    border: 1px solid rgb(144, 214, 127);
+    color: rgb(28, 108, 9);
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.user-detail .table-orders-cus tbody td .b-payment-status.paid i,
+.user-detail .table-orders-cus tbody td .b-fulfilment-status.fulfilled i{
+    margin-left: 5px;
+    font-size: 10px;
+    color: rgb(28, 108, 9);
+}
+
+.user-detail .table-orders-cus tbody td .b-payment-status.cancelled,
+.user-detail .table-orders-cus tbody td .b-fulfilment-status.cancelled {
+    padding: 2px 8px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(239, 242, 246);
+    border: 1px solid rgb(203, 208, 221);
+    color: rgb(82, 91, 117);
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.user-detail .table-orders-cus tbody td .b-payment-status.cancelled i,
+.user-detail .table-orders-cus tbody td .b-fulfilment-status.cancelled i{
+    margin-left: 5px;
+    font-size: 10px;
+    color: rgb(82, 91, 117);
+}
+
+.user-detail .table-orders-cus tbody td .b-payment-status.failed,
+.user-detail .table-orders-cus tbody td .b-fulfilment-status.failed {
+    padding: 2px 8px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(255, 224, 219);
+    border: 1px solid rgb(244, 130, 112);
+    color: rgb(184, 24, 0);
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.user-detail .table-orders-cus tbody td .b-payment-status.failed i,
+.user-detail .table-orders-cus tbody td .b-fulfilment-status.failed i{
+    margin-left: 5px;
+    font-size: 10px;
+    color: rgb(184, 24, 0);
+}
+
+.user-detail .table-orders-cus tbody td .b-order-number {
+    color: rgb(56, 116, 255);
+}
+
+.user-detail .table-orders-cus tbody td .b-order-number:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.user-detail .table-orders-cus tbody td .b-total {
+    color: rgb(34, 40, 52);
+}
+
+
+.user-detail .table-orders-cus tbody td .b-delivery {
+    color: rgb(49, 55, 74);
+    font-weight: 400;
+}
+
+.user-detail .table-orders-cus tbody td .b-date {
+    color: rgb(82, 91, 117);
+    font-weight: 400;
+}
+
+
+
+
+.user-detail .table-orders-cus .pagination-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(203, 208, 221);
+}
+
+.user-detail .table-orders-cus .pagination-table  .info-detail span{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.user-detail .table-orders-cus .pagination-table  .info-detail .sub {
+    margin-left: 15px;
+    color: #4E83FE;
+    margin-right: 5px;
+    cursor: pointer;
+
+}
+
+.user-detail .table-orders-cus tbody .actions-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.user-detail .table-orders-cus tbody .actions-content i {
+    padding: 6px 8px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in;
+}
+
+.user-detail .table-orders-cus tbody .actions-content:hover i{
+    background-color: #E3E6ED;
+    cursor: pointer;
+}
+
+.user-detail .table-orders-cus tbody .actions-content .actions {
+    position: absolute;
+    top: 35px;
+    left: -105px;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 208, 221);
+    padding: 8px 0;
+    background-color: #fff;
+    width: 155px;
+}
+
+.user-detail .table-orders-cus tbody .actions-content .actions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.user-detail .table-orders-cus tbody .actions-content .actions ul li {
+    padding: 8px 16px;
+    font-size: 13px;
+    text-align: left;
+}
+
+.user-detail .table-orders-cus tbody .actions-content .actions ul li:hover {
+    background-color: #E3E6ED;
+    cursor: pointer;
+}
+
+.user-detail .table-orders-cus tbody .actions-content .actions ul li:nth-child(3) {
+    padding: 1px 16px;
+    margin: 5px 0;
+}
+
+.user-detail .table-orders-cus tbody .actions-content .actions ul li:last-child {
+    color: red;
+}
+
+.user-detail .table-orders-cus .pagination-table  .info-detail i {
+    font-size: 13px;
+    color: #4E83FE;
+}
+
+
+.user-detail .table-orders-cus .pagination-table .pagination-content {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-detail .table-orders-cus .pagination-table .pagination-content .pagination-item:first-child {
+    background-color: #E3E6ED;
+}
+
+.user-detail .table-orders-cus .pagination-table .pagination-content .pagination-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 31px;
+    height: 31px;
+    border-radius: 5px;  
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.user-detail .table-orders-cus .pagination-table .pagination-content .pagination-item.active {
+    background-color: #3874FF;
+    color: #fff;
+}
+
+.user-detail .table-orders-cus .pagination-table .pagination-content .pagination-item:hover {
+    background-color: #E3E6ED;
+    color: #2453d4;
+}
+
+.user-detail .table-orders-cus .pagination-table .pagination-content .pagination-item i {
+    font-size: 13px;
+}
+
+.user-detail .table-orders-cus .pagination-table .pagination-content .pagination-item span {
+    font-size: 14px;
+    font-weight: 500;
+}

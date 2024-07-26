@@ -1,0 +1,71 @@
+.order-received {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 100px;
+}
+
+.order-received .message {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.order-received__summary p{
+    font-size: 15px;
+    color: #676770;
+    font-weight: 400;
+    margin-bottom: 0;
+    border-bottom: 1px solid #eaeaea;
+    padding: 15px 0;
+}
+
+.order-received .title {
+    font-size: 26px;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.order-received .products {
+    width: 100%;
+}
+
+.order-received .products thead th {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 15px 0;
+}
+
+.order-received .products thead tr {
+    border-top: 1px solid #eaeaea;
+}
+
+.order-received .products tbody td {
+    font-size: 15px;
+    padding: 15px 0;
+}
+
+.order-received .products tbody .price-product,
+.order-received .products tbody .sub {
+    color: rgb(103, 103, 112);
+    font-weight: 400;
+}
+
+.order-received .products tbody .product-name {
+    font-weight: 500;
+}
+
+.order-received .products tbody .product-name .quantity {
+    color: #676770;
+}
+
+.order-received .products tr {
+    border-bottom: 1px solid #eaeaea;
+}
+
+.order-received .products .subtotal .title,
+.order-received .products .payment-method .title,
+.order-received .products .shipping-method .title,
+.order-received .products .total .title{
+    font-size: 20px;
+    font-weight: 500;
+}
+

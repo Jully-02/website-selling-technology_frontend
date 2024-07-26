@@ -4,7 +4,7 @@
   margin-top: 120px;
 }
 
-.has-coupon {
+.checkout .has-coupon {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,12 +12,12 @@
   padding: 20px 30px;
 }
 
-.has-coupon span {
+.checkout .has-coupon span {
   font-size: 15px;
   color: rgb(103, 103, 112);
 }
 
-.has-coupon .add-coupon {
+.checkout .has-coupon .add-coupon {
   display: flex;
   align-items: center;
   background-color: #2453d4;
@@ -26,7 +26,7 @@
   padding: 17px 30px;
 }
 
-.has-coupon .add-coupon span {
+.checkout .has-coupon .add-coupon span {
   color: #fff;
   font-size: 12px;
   text-transform: uppercase;
@@ -34,7 +34,7 @@
   padding-right: 10px;
 }
 
-.has-coupon .add-coupon i {
+.checkout .has-coupon .add-coupon i {
   font-size: 14px;
   color: #fff;
 }
@@ -46,16 +46,16 @@
   margin-top: 45px;
 }
 
-.content .billing-detail,
-.content .add-info {
+.checkout .content .billing-detail,
+.checkout .content .add-info {
   width: 50%;
 }
 
-.add-info .content .note {
+.checkout .add-info .content .note {
   width: 100%;
 }
 
-.add-note {
+.checkout .add-note {
   border-radius: 10px;
   border: 1px solid #eaeaea;
   padding: 21px 20px;
@@ -66,11 +66,11 @@
   margin-top: 6px;
 }
 
-.add-note:focus::placeholder {
+.checkout .add-note:focus::placeholder {
   color: #000;
 }
 
-.add-note:focus {
+.checkout .add-note:focus {
   background-color: transparent;
   border-color: transparent;
   color: #000;
@@ -130,7 +130,9 @@
   margin-bottom: 8px;
 }
 
-.select__country-region {
+.checkout .select__province-city,
+.checkout .select__distric,
+.checkout .select__ward-commune{
   padding: 21px 20px;
   background-color: #fff;
   border-radius: 10px;
@@ -142,92 +144,94 @@
   margin-bottom: 15px;
 }
 
-.select__country-region option {
+.checkout .select__province-city option,
+.checkout .select__distric option,
+.checkout .select__ward-commune option {
   background-color: #f3f6fb;
 }
 
-.add-info .heading .title,
-.billing-detail .heading .title {
+.checkout .add-info .heading .title,
+.checkout .billing-detail .heading .title {
   font-size: 26px;
   font-weight: 600;
   text-transform: capitalize;
 }
 
-.add-info .heading,
-.billing-detail .heading {
+.checkout .add-info .heading,
+.checkout .billing-detail .heading {
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 17px;
   margin-bottom: 23px;
 }
-.order {
+.checkout .order {
   margin-top: 30px;
 }
 
-.order .title {
+.checkout .order .title {
   padding-bottom: 18px;
   margin-bottom: 15px;
   border-bottom: 1px solid #eaeaea;
 }
 
-.order-table {
+.checkout .order-table {
   width: 100%;
 }
 
-.order-table th {
+.checkout .order-table th {
   font-size: 21px;
   font-weight: 600;
 }
 
-.order-table td {
+.checkout .order-table td {
   font-size: 17px;
   font-weight: 500;
 }
 
-.order-table tr td:last-child {
+.checkout .order-table tr td:last-child {
   font-size: 21px;
 }
 
-.order-table th,
-.order-table td {
+.checkout .order-table th,
+.checkout .order-table td {
   vertical-align: middle;
   padding: 15px 0;
   border-top: 1px solid #eaeaea;
   border-bottom: 1px solid #eaeaea;
 }
 
-.order-table .subtotal .title,
-.order-table .total .title {
+.checkout .order-table .subtotal .title,
+.checkout .order-table .total .title {
   font-size: 20px;
   font-weight: 600;
 }
 
-.order-table .total .sub {
+.checkout .order-table .total .sub {
   font-weight: 700;
 }
 
-.payment ul {
+.checkout .payment ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.payment ul li {
+.checkout .payment ul li {
   padding: 15px 0;
   border-bottom: 1px solid #eaeaea;
 }
 
-.payment ul label {
+.checkout .payment ul label {
   padding-left: 15px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
 }
 
-.payment ul div {
+.checkout .payment ul div {
   padding-left: 28px;
 }
 
-.payment ul div p {
+.checkout .payment ul div p {
   margin: 0;
   font-size: 15px;
   color: rgb(103, 103, 112);
@@ -235,40 +239,36 @@
   margin-top: 8px;
 }
 
-#payment-method_bacs:checked ~ .payment_box.payment-method_bacs,
-#payment-method_cheque:checked ~ .payment_box.payment-method_cheque,
-#payment-method_cod:checked ~ .payment_box.payment_method_cod {
+#payment-method_input:checked ~ .payment_box.payment-method_item {
   display: block;
 }
 
-.payment_box.payment-method_bacs,
-.payment_box.payment-method_cheque,
-.payment_box.payment_method_cod {
+.checkout .payment_box.payment-method_item {
   display: none;
 }
 
-.payment .attention {
+.checkout .payment .attention {
   margin: 35px 0;
 }
 
-.payment .attention span {
+.checkout .payment .attention span {
   color: rgb(103, 103, 112);
   font-size: 15px;
   font-weight: 400;
 }
 
-.payment .attention a {
+.checkout .payment .attention a {
   text-decoration: none;
   color: #000;
   font-weight: 400;
   transition: all 0.3s ease-in;
 }
 
-.payment .attention a:hover {
+.checkout .payment .attention a:hover {
     color: #2453d4;
 }
 
-.order .place-order {
+.checkout .order .place-order {
   display: flex;
   align-items: center;
   background-color: #2453d4;
@@ -277,10 +277,17 @@
   padding: 17px 30px;
 }
 
-.order .place-order span {
+.checkout .order .place-order span {
   color: #fff;
   font-size: 12px;
   text-transform: uppercase;
   font-weight: 700;
   padding-right: 10px;
+}
+
+.checkout .error {
+  font-size: 15px;
+  color: red;
+  font-style: italic;
+  margin-bottom: 10px;
 }

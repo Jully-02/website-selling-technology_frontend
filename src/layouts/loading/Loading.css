@@ -1,5 +1,5 @@
 
-.content {
+.loading-content {
     margin:  15px 4%;
     display: flex;
     align-items: center;
@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.loader {
+.loading-content .loader {
     --d:22px;
     width: 4px;
     height: 4px;

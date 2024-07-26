@@ -18,7 +18,7 @@
 }
 
 .info .info__rate i {
-    color: #CDD0D9;
+    color: #E5780B;
     padding-right: 3px;
 }
 
@@ -26,15 +26,9 @@
     padding: 0;
 }
 
-.info .info__rate i:nth-child(1),
-.info .info__rate i:nth-child(2),
-.info .info__rate i:nth-child(3) {
-    color: #000;
-}
-
 .info .info__time p{
     color: #676770;
-    font-size: 11px;
+    font-size: 12px;
     padding: 0;
     margin: 0;
     margin-top: 10px;
@@ -42,7 +36,7 @@
 }
 
 .info .info__name h3 {
-    font-size: 26px;
+    font-size: 20px;
     color: #000;
     margin-top: 5px;
 }

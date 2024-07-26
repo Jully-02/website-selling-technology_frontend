@@ -1,0 +1,78 @@
+.dashboard-box {
+    width: 48%;
+    height: 170px;
+    border-radius: 10px !important;
+    overflow: hidden;
+    padding: 20px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left !important;
+    position: relative;
+    color: #fff;
+    text-transform: capitalize !important;
+}
+
+.dashboard-box .col1 h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dashboard-box .col1 span {
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 45px;
+}
+
+.dashboard-box .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+}
+
+.dashboard-box .icon svg {
+    font-size: 36px;
+    opacity: 0.5;
+    color: #fff;
+}
+
+.dashboard-box .toggle-icon {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    min-width: 40px !important;
+    width: 40px !important; 
+    height: 40px !important;
+    border-radius: 50% !important;
+}
+
+.dashboard-box .chart {
+    opacity: 0.050;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.dashboard-box .chart svg {
+    font-size: 110px;
+    color: #000;
+}
+
+.dashboard-box .bottom-element {
+    position: relative;
+    top: 15px;
+}
+
+.dashboard-box .MuiList-root svg {
+    color: #000 !important;
+    font-size: 17px !important;
+    margin-right: 10px !important;
+}
+
+.dropdown_menu .MuiButtonBase-root svg {
+    margin-right: 10px !important;
+}

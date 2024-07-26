@@ -12,6 +12,8 @@ export interface Product {
     description?: string;
     categories?: Category[];
     brand_id?: number,
+    brand_name?: string,
+    category_names: string[],
     url?: string;
     feedbacks?: number[],
     favorites?: number[],

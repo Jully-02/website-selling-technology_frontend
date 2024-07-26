@@ -15,6 +15,9 @@ import Pagination from '../../layouts/utils/Pagination';
 import { Product } from '../../models/product';
 import { getAllProducts } from '../../api/product.api';
 import { Console } from 'console';
+import { CartItemDTO } from '../../dtos/cart.item.dto';
+import { addToCart, insertCartItem } from '../../api/cart.item.api';
+
 
 const Shop: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -25,6 +28,10 @@ const Shop: React.FC = () => {
     const [checkedCategories, setCheckedCategories] = useState<number[]>([]);
     const [checkedBrands, setCheckedBrands] = useState<number[]>([]);
     const [sortOption, setSortOption] = useState('default');
+
+    const [cartItems, setCartItems] = useState<Product[]>([]);
+    const [totalPrice, setTotalPrice] = useState<number>(0);
+    const [quantities, setQuantities] = useState<number[]>([]);
 
     const handleCheckedCategoriesChange = (newCheckedCategories: number[]) => {
         setCheckedCategories(newCheckedCategories)
@@ -60,7 +67,7 @@ const Shop: React.FC = () => {
 
     return (
         <>
-            <Header />
+            <Header cartItems={cartItems} setCartItems={setCartItems} quantities={quantities} setQuantities={setQuantities} totalPrice={totalPrice} setTotalPrice={setTotalPrice}/>
             <div className="shop">
                 <div className="filter">
                     <div className="category-list">
@@ -198,7 +205,7 @@ const Shop: React.FC = () => {
                 </div>
                 <div className="products">
                     <BannerShop />
-                    <ProductList products={products} totalProducts={totalPages} onSortChange={handleSortChange}/>
+                    <ProductList products={products} totalProducts={totalPages} onSortChange={handleSortChange} cartItems={cartItems} setCartItems={setCartItems} quantities={quantities} setQuantities={setQuantities} totalPrice={totalPrice} setTotalPrice={setTotalPrice}/>
                     <Pagination currentPage={currentPage} totalPages={totalPages} pagination={pagination}/>
                 </div>
             </div>

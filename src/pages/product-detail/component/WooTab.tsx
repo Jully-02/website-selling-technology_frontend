@@ -3,20 +3,52 @@ import './WooTab.css';
 import User1 from '../../../images/public/user-1.jpg';
 import User2 from '../../../images/public/user-2.jpg';
 import AddReview from '../../../layouts/review/AddReview';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { getFeedbackByProductId } from '../../../api/feedback.api';
+import { Feedback } from '../../../models/feedback';
 
-const WooTab: React.FC = () => {
+interface WooTabProps {
+    productId: number
+}
 
-    const [activeTab, setActiveTab] = useState('description'); // State to track active tab
+const WooTab: React.FC<WooTabProps> = ({ productId }) => {
+
+    const [activeTab, setActiveTab] = useState('description');
+    const [stateAddReview, setStateAddReview] = useState(false);
+    const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
+
+    const addFeedback = (newFeedback: Feedback) => {
+        setFeedbacks([...feedbacks, newFeedback]);
+    }
 
     const handleTabClick = (tabName: string) => {
         setActiveTab(tabName);
     };
 
+    useEffect(() => {
+        const fetchReviews = async () => {
+            const response = await getFeedbackByProductId(productId);
+            setFeedbacks(response?.data.data_list);
+        }
+
+        fetchReviews();
+    }, [productId])
+
+    useEffect(() => {
+        const fetchReviews = async () => {
+            setStateAddReview(false);
+            const response = await getFeedbackByProductId(productId);
+            setFeedbacks(response?.data.data_list);
+            console.log(response);
+        }
+
+        fetchReviews();
+    }, [stateAddReview])
+
     return (
         <div className='woo-tabs'>
             <div className="woo-tab__heading">
-            <div onClick={() => handleTabClick('description')} className={`description ${activeTab === 'description' ? 'active' : ''}`}>
+                <div onClick={() => handleTabClick('description')} className={`description ${activeTab === 'description' ? 'active' : ''}`}>
                     <h3 className="title">Description</h3>
                 </div>
                 <div onClick={() => handleTabClick('add-info')} className={`add-info ${activeTab === 'add-info' ? 'active' : ''}`}>
@@ -26,7 +58,7 @@ const WooTab: React.FC = () => {
                     <h3 className="title">Specification</h3>
                 </div>
                 <div onClick={() => handleTabClick('review')} className={`review ${activeTab === 'review' ? 'active' : ''}`}>
-                    <h3 className="title">Reviews <span className='quantity'>(10)</span></h3>
+                    <h3 className="title">Reviews <span className='quantity'>({feedbacks.length})</span></h3>
                 </div>
             </div>
             <div className="woo-tab__content">
@@ -169,16 +201,19 @@ const WooTab: React.FC = () => {
                         <div className="woo-tab__review">
                             <div className="woo-tab__review-cus">
                                 <h3 className="title">
-                                    2 reviews for SM-2357 Closed-Back Wireless Headphones
+                                    {feedbacks.length} reviews for SM-2357 Closed-Back Wireless Headphones
                                 </h3>
                                 <div className="content">
-                                    <ReviewItem imgSrc={User1} time={'OCTOBER 5, 2022'} name={'Ellie Holmes'} desc={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut nulla pulvinar, lobortis purus eu, interdum urna donec dapibus. Efficitur iaculis suspendisse sapien tempor ultricies. Fusce lacinia augue vitae gravida rhoncus, aenean eget massa ipsum.'} />
-                                    <ReviewItem imgSrc={User2} time={'OCTOBER 5, 2022'} name={'Ron Bradley'} desc={'Donec dapibus neque eu ipsum efficitur iaculis. Suspendisse sapien tempor ultricies. Fusce lacinia augue vitae nibh gravida rhoncus.'} />
+                                    {
+                                        feedbacks && feedbacks.map(feedback => (
+                                            <ReviewItem imgSrc={User2} feedback={feedback} />
+                                        ))
+                                    }
                                 </div>
                             </div>
                             <div className="woo-tab__review-add">
                                 <h3 className="title">Add a review</h3>
-                                <AddReview />
+                                <AddReview productId={productId} addFeedback={addFeedback}/>
                             </div>
                         </div>
                     )

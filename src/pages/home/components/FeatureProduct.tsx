@@ -5,7 +5,16 @@ import { getAllProducts } from '../../../api/product.api';
 import ProductCart from '../../../layouts/product/ProductCart';
 import Loading from '../../../layouts/loading/Loading';
 
-const FeatureProduct: React.FC = () => {
+interface FeatureProductProps {
+    cartItems?: Product[]
+    setCartItems?: React.Dispatch<React.SetStateAction<Product[]>>;
+    quantities?: number[]
+    setQuantities?: React.Dispatch<React.SetStateAction<number[]>>;
+    totalPrice?: number;
+    setTotalPrice?: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const FeatureProduct: React.FC<FeatureProductProps> = (props) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [currentStartIndex, setCurrentStartIndex] = useState<number>(0);
     const [loading, setLoading] = useState(true);
@@ -64,7 +73,7 @@ const FeatureProduct: React.FC = () => {
             <div className="list-products">
                 {
                     visibleProducts.map((product) => (
-                        <ProductCart key={product.id} width={'215px'} height={'357px'} product={product}/>
+                        <ProductCart key={product.id} width={'215px'} height={'357px'} product={product} cartItems={props.cartItems} setCartItems={props.setCartItems} quantities={props.quantities} setQuantities={props.setQuantities} totalPrice={props.totalPrice} setTotalPrice={props.setTotalPrice}/>
                     ))
                 }
             </div>

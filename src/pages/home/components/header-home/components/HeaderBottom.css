@@ -179,6 +179,14 @@
   transition: all 0.2s ease-in;
 }
 
+.header-bottom-home .nav-actions .nav-item i {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  align-items: center;
+  transition: all 0.2s ease-in;
+}
+
 .header-bottom-home .nav-actions .nav-item a span {
   font-size: 16px;
   font-weight: 600;
@@ -211,11 +219,14 @@
   /* color: #6F6F78; */
 }
 
-.header-bottom-home .nav-actions .nav-item:last-child {
+.header-bottom-home .nav-actions .nav-item:last-child,
+.header-bottom-home .nav-actions .nav-item:nth-child(2){
   position: relative;
+  cursor: pointer;
 }
 
-.header-bottom-home .nav-actions .nav-item:last-child:hover .cart{
+.header-bottom-home .nav-actions .nav-item:last-child:hover .cart,
+.header-bottom-home .nav-actions .nav-item:nth-child(2):hover .info-user{
   opacity: 1;
   visibility: visible;
 }
@@ -236,19 +247,100 @@
   z-index: 999;
 }
 
+.header-bottom-home .nav-actions .nav-item:nth-child(2) .info-user {
+  background-color: #fff;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  border: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  align-items: last baseline;
+  list-style: none;
+  padding: 10px 25px;
+}
+
+.header-bottom-home .nav-actions .nav-item:nth-child(2) .info-user li {
+  padding: 3px 5px;
+  transition: all .3s ease-in;
+}
+
+.header-bottom-home .nav-actions .nav-item:nth-child(2) .info-user li:first-child {
+  border-bottom: 1px solid #eaeaea ;
+}
+
+.header-bottom-home .nav-actions .nav-item:nth-child(2) .info-user li:hover span {
+  color: #2453D4;
+  cursor: pointer;
+}
+
+.header-bottom-home .nav-actions .nav-item:nth-child(2) .info-user span {
+  color: #000;
+  text-wrap: nowrap;
+  font-weight: 400;
+}
+
 .header-bottom-home .nav-actions .nav-item:last-child .mini-cart {
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  height: 324px;
+  /* height: 324px; */
   overflow: hidden;
   overflow-y: scroll;
   list-style: none;
 }
 
+.header-bottom-home .nav-actions .nav-item:last-child .cart-empty {
+  background-color: #fff;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  border: 1px solid #eaeaea;
+  border-top: none;
+  /* width: 413px; */
+  opacity: 0;
+  visibility: hidden;
+  /* transition: all 0.3s ease-in; */
+  z-index: 999;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+}
+
+.header-bottom-home .nav-actions .nav-item:last-child:hover .cart-empty {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header-bottom-home .nav-actions .nav-item:last-child:hover .cart-empty span {
+  white-space: nowrap;
+  color: #000;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.header-top .nav-actions .nav-item:nth-child(3) {
+  text-decoration: none;
+}
+
 /* .nav-actions .nav-item:last-child .mini-cart:hover {
   overflow-y: scroll; 
 } */
+
+.header-bottom-home .nav-actions .nav-item:last-child .mini-cart__item {
+  text-decoration: none;
+  color: #000;
+}
 
 .header-bottom-home .nav-actions .nav-item:last-child .mini-cart::-webkit-scrollbar {
   width: 6px; 
@@ -275,6 +367,15 @@
   border-bottom: 1px solid #eaeaea;
 }
 
+.header-bottom-home .nav-actions .nav-item:last-child .mini-cart__item .info {
+  width: 100%;
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
 .header-bottom-home .nav-actions .nav-item:last-child .mini-cart__item .info .title {
   font-size: 15px;
   font-weight: 700;
@@ -292,10 +393,14 @@
 
 .header-bottom-home .nav-actions .nav-item:last-child .mini-cart__item .info .price {
   font-size: 18px;
+  margin-left: 0;
+  padding-left: 0;
+  font-weight: 400;
 }
 
 .header-bottom-home .nav-actions .nav-item:last-child .mini-cart__item i {
   transition: all 0.3s ease-in;
+  color: #000;
 }
 
 .header-bottom-home .nav-actions .nav-item:last-child .mini-cart__item i:hover {
